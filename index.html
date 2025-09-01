@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="light">
+
+  <!-- Light Mode Background -->
+<div class="background light">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <rect fill="#f4f1e8" width="100%" height="100%"/>
+    <path d="M1000 100C500 100 500 4 0 4V0h1000v100Z" fill="#dcccbe"/>
+  </svg>
+</div>
+
+<!-- Dark Mode Background -->
+<div class="background dark">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <rect fill="#0f2027" width="100%" height="100%"/>
+    <path d="M1000 100C500 100 500 4 0 4V0h1000v100Z" fill="#233e46"/>
+  </svg>
+</div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <!-- Logo -->
+    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="logo">
+      <img src="logo.png" alt="My Logo">
+    </div>
+
+    <!-- Navigation -->
+    <ul class="nav-links">
+      <li class="active"><a data-aos="fade-down" data-aos-duration="1000" href="#home">Home<span></span></a></li>
+      <li><a data-aos="fade-down" data-aos-duration="1500" href="#about">About<span></span></a></li>
+      <li><a data-aos="fade-down" data-aos-duration="2000" href="#projects">Projects<span></span></a></li>
+      <li><a data-aos="fade-down" data-aos-duration="2500" href="#skills">Skills<span></span></a></li>
+      <li><a data-aos="fade-down" data-aos-duration="3000" href="#certificates">Certificates<span></span></a></li>
+    </ul>
+
+    <!-- Right Controls -->
+    <div class="nav-controls">
+      <!-- Theme Toggle -->
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2000" class="theme-toggle" id="themeToggle" title="Dark Mode">
+        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <circle cx="12" cy="12" r="5"/>
+          <g stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </g>
+        </svg>
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="display:none;">
+          <path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79z"/>
+        </svg>
+      </div>
+
+      <!-- Hamburger -->
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3000" class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <main>
+  
+<!-- Home Section -->
+<section id="home" class="home-section">
+  <div class="home-content">
+    <!-- Left side: Text -->
+    <div class="home-text">
+      <h1 data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="1000" >Hello, I'm <span>Fermina Cancino</span></h1>
+      <p data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="2000">Electronics Engineer & Developer</p>
+
+      <!-- Social Links -->
+      <div data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="2500"class="navigation">
+        <ul data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="3000">
+          <li class="list">
+            <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank">
+              <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
+              <span class="text">LinkedIn</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="https://github.com/fermcancino" target="_blank">
+              <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
+              <span class="text">Github</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="viber://chat?number=09463002207">
+              <span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+              <span class="text">Viber</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <div class="indicator"></div>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Right side: Image -->
+    <div data-aos="zoom-in"
+     data-aos-duration="3000" class="home-image">
+      <img src="fermina.png" alt="Fermina Cancino" class="profile-img">
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+  <div class="about-container">
+    
+    <div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" 
+     data-aos-duration="1500" class="about-image">
+      <img src="fermina.png" alt="About Me">
+    </div>
+
+    <!-- About Text -->
+    <div data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" 
+     data-aos-duration="2000"class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate developer with a background in Electronics Engineering, 
+        now transitioning into automation and software development.  
+        My focus is on building clean, responsive, and user-friendly applications 
+        with modern technologies.
+      </p>
+      <p>
+        I enjoy solving problems, learning new skills, and experimenting with 
+        creative UI designs like neumorphism and glassmorphism.  
+        My goal is to grow as both a <strong>Front-End Developer</strong> and 
+        <strong>Automation Engineer</strong>, combining my technical foundation 
+        with software engineering.
+      </p>
+      <p>
+        One of my proudest projects is my 
+        <strong>All-in-One Engineer’s Toolkit Calculator</strong> — 
+        a fully responsive application that integrates scientific, base conversion, 
+        unit, and currency calculations in a single platform.
+      </p>
+      <a href="#projects" class="btn">Explore My Work</a>
+    </div>
+   </div>
+  </section>
+
+<!-- Project Section -->
+<section id="projects" class="projects-section">
+  <h2 data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom"
+     data-aos-duration="1000" class="section-title">My Project</h2>
+
+  <div class="project-wrapper">
+    <!-- Image card -->
+    <div class="project-card card-image">
+      <img data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom"
+     data-aos-duration="2000" src="frontpage.png" alt="Engineer Toolkit">
+    </div>
+
+    <!-- Description card -->
+    <div class="project-card card-description">
+      <h3>All-in-One Engineer Toolkit</h3>
+      <br>
+      <p>
+        The All-in-One Engineer’s Toolkit is a comprehensive digital resource designed to streamline and simplify complex engineering calculations. This toolkit brings together a wide array of essential mathematical, statistical, and scientific tools in one intuitive platform, making it an indispensable companion for engineers, students, and technical professionals.
+      </p>
+      <br>
+      <p>With features ranging from basic arithmetic and algebraic solvers to advanced calculus, geometry, trigonometry, and measurement converters, the toolkit covers every major area required for problem-solving in engineering and technical fields. It also includes specialized modules for statistics, probability, number theory, and unit conversions, ensuring accuracy and efficiency in every calculation.
+      </p>
+      <br>
+      <p>Whether you’re tackling everyday math, analyzing data, converting units, or solving advanced equations, the All-in-One Engineer’s Toolkit provides reliable, easy-to-use solutions to support your workflow and enhance productivity.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toolkit Container -->
+<div class="toolkit-container">
+  <!-- Central Button -->
+  <button data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom"
+     data-aos-duration="3000" type="button" class="toolkit-btn" id="toolkitToggle">
+    <span class="btn-text">All-in-One Engineer’s Toolkit</span>
+    <i class="fas fa-calculator btn-icon"></i>
+    <span class="view-more">Click to View More</span>
+  </button>
+
+  <!-- Radial Icons -->
+  <div class="toolkit-icons">
+    <a href="#" data-page="page1" title="Arithmetic"><i class="fas fa-plus"></i><span class="indicator">Arithmetic & Basic Math</span></a>
+    <a href="#" data-page="page2" title="Statistics"><i class="fas fa-chart-bar"></i><span class="indicator">Statistics & Probability</span></a>
+    <a href="#" data-page="page3" title="Measurement"><i class="fas fa-ruler-combined"></i><span class="indicator">Measurement / Converters</span></a>
+    <a href="#" data-page="page4" title="Number Theory"><i class="fas fa-square-root-alt"></i><span class="indicator">Number Theory & Tools</span></a>
+    <a href="#" data-page="page5" title="Algebra"><i class="fas fa-superscript"></i><span class="indicator">Algebra</span></a>
+    <a href="#" data-page="page6" title="Geometry"><i class="fas fa-drafting-compass"></i><span class="indicator">Geometry</span></a>
+    <a href="#" data-page="page7" title="Trigonometry"><i class="fas fa-circle-notch"></i><span class="indicator">Trigonometry</span></a>
+    <a href="#" data-page="page8" title="Calculus"><i class="fas fa-infinity"></i><span class="indicator">Calculus</span></a>
+  </div>
+</div>
+
+
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <h2 data-aos="zoom-in-down" data-aos-duration="1000" class="section-title">My Skills</h2>
+  <div class="skills-container">
+    <div data-aos="zoom-in-right" data-aos-duration="3000" class="skill-card">
+      <i class="fab fa-python"></i>
+      <h3>Python</h3>
+    </div>
+    <div data-aos="zoom-in-right" data-aos-duration="2000" class="skill-card">
+      <i class="fab fa-js-square"></i>
+      <h3>JavaScript</h3>
+    </div>
+    <div data-aos="zoom-in-right" data-aos-duration="1000" class="skill-card">
+      <i class="fab fa-html5"></i>
+      <h3>HTML5</h3>
+    </div>
+    <div data-aos="zoom-in-left" data-aos-duration="1000" class="skill-card">
+      <i class="fab fa-css3-alt"></i>
+      <h3>CSS3</h3>
+    </div>
+    <div data-aos="zoom-in-left" data-aos-duration="2000" class="skill-card">
+      <i class="fas fa-cogs"></i>
+      <h3>Automation</h3>
+    </div>
+    <div data-aos="zoom-in-left" data-aos-duration="3000" class="skill-card">
+      <i class="fab fa-github"></i>
+      <h3>GitHub</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Certificates Section -->
+<section id="certificates" class="certificates-section">
+  <h2 data-aos="zoom-in-up" data-aos-duration="3000" class="section-title">Certificates</h2>
+  <div class="certificates-grid">
+    
+    <!-- Certificate Card -->
+    <div class="certificate-card">
+      <div data-aos="zoom-out-right" data-aos-duration="3000" class="certificate-inner">
+        <!-- Front -->
+        <div class="certificate-front">
+          <img src="python.jpg" alt="Certificate 1">
+        </div>
+        <!-- Back -->
+        <div class="certificate-back">
+          <h3>Python</h3>
+          <p>Mimo • July 2025</p>
+          <a href="python.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div data-aos="zoom-out-right" data-aos-duration="2000" class="certificate-inner">
+        <div class="certificate-front">
+          <img src="javascript.jpg" alt="Certificate 2">
+        </div>
+        <div class="certificate-back">
+          <h3>JavaScript</h3>
+          <p>Mimo • August 2025</p>
+          <a href="javascript.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div data-aos="zoom-out-right" data-aos-duration="1000" class="certificate-inner">
+        <div class="certificate-front">
+          <img src="html.jpg" alt="Certificate 2">
+        </div>
+        <div class="certificate-back">
+          <h3>HTML</h3>
+          <p>Mimo • August 2025</p>
+          <a href="html.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div data-aos="zoom-out-left" data-aos-duration="1000" class="certificate-inner">
+        <div class="certificate-front">
+          <img src="css.jpg" alt="Certificate 2">
+        </div>
+        <div class="certificate-back">
+          <h3>CSS</h3>
+          <p>Mimo • August 2025</p>
+          <a href="css.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div data-aos="zoom-out-left" data-aos-duration="2000" class="certificate-inner">
+        <div class="certificate-front">
+          <img src="frontend.jpg" alt="Certificate 2">
+        </div>
+        <div class="certificate-back">
+          <h3>Front-End Development</h3>
+          <p>Mimo • August 2025</p>
+          <a href="frontend.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div data-aos="zoom-out-left" data-aos-duration="3000" class="certificate-inner">
+        <div class="certificate-front">
+          <img src="python development.jpg" alt="Certificate 2">
+        </div>
+        <div class="certificate-back">
+          <h3>Python AI Development</h3>
+          <p>Mimo • July 2025</p>
+          <a href="python development.jpg" target="_blank" class="btn">View Full</a>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+</main>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
