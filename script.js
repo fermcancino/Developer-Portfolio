@@ -79,7 +79,9 @@ const observer = new IntersectionObserver(entries => {
     const id = entry.target.getAttribute("id");
     navLinks.forEach(link => link.classList.remove("active"));
     if (entry.isIntersecting) {
-      const activeLink = document.querySelector(`.nav-links li a[href="#${id}"]`).parentElement;
+      const activeLink = document.querySelector(
+        `.nav-links li a[href="#${id}"]`
+      ).parentElement;
       activeLink.classList.add("active");
     }
   });
@@ -102,74 +104,67 @@ navLinks.forEach(link => {
   });
 });
 
-// === Toolkit Button & Icons ===
-const toolkitContainer = document.querySelector('.toolkit-container');
-const toolkitBtn = document.getElementById('toolkitToggle');
-const toolkitIcons = document.querySelectorAll('.toolkit-icons a');
-const toolkitPages = document.querySelectorAll('.toolkit-page'); 
+// === Toolkit Central Button ===
+const toolkitBtn = document.getElementById("toolkitToggle");
+const toolkitContainer = document.querySelector(".toolkit-container");
+const toolkitIcons = document.querySelectorAll(".toolkit-icons button");
+const toolkitPages = document.querySelectorAll(".toolkit-page");
 
-toolkitBtn.addEventListener('click', () => {
-  toolkitContainer.classList.toggle('active');
-  toolkitBtn.classList.toggle('active');
+toolkitBtn.addEventListener("click", () => {
+  toolkitContainer.classList.toggle("active");
+  toolkitBtn.classList.toggle("active");
+
+  // 🔹 If toolkit closes, close all chapter pages too
+  if (!toolkitContainer.classList.contains("active")) {
+    toolkitPages.forEach(page =>
+      page.classList.remove("active", "fullscreen")
+    );
+  }
 });
 
-const buttons = document.querySelectorAll(".toolkit-btn");
-buttons.forEach(btn => {
-  btn.addEventListener("mousemove", e => {
-    const rect = btn.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    btn.style.setProperty("--x", `${x}%`);
-    btn.style.setProperty("--y", `${y}%`);
-  });
+// === Toolkit Button Hover Effect ===
+toolkitBtn.addEventListener("mousemove", e => {
+  const rect = toolkitBtn.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  toolkitBtn.style.setProperty("--x", `${x}%`);
+  toolkitBtn.style.setProperty("--y", `${y}%`);
+});
 
-  btn.addEventListener("click", () => {
-    const text = btn.querySelector(".view-more");
-    if (btn.classList.contains("active")) {
-      text.textContent = "Click icons";
-    } else {
-      text.textContent = "Click to View more";
+toolkitBtn.addEventListener("click", () => {
+  const text = toolkitBtn.querySelector(".view-more");
+  if (toolkitBtn.classList.contains("active")) {
+    text.textContent = "Click icons to explore";
+  } else {
+    text.textContent = "Click to View more";
+  }
+});
+
+// === Toolkit Icon Click → Open Chapter ===
+toolkitIcons.forEach(icon => {
+  icon.addEventListener("click", () => {
+    const targetId = icon.getAttribute("data-page");
+    const targetPage = document.getElementById(targetId);
+
+    // Hide all first
+    toolkitPages.forEach(page => page.classList.remove("active", "fullscreen"));
+
+    // Show clicked one
+    if (targetPage) {
+      targetPage.classList.add("active", "fullscreen");
+      targetPage.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest"
+      });
     }
   });
 });
 
-toolkitIcons.forEach(icon => {
-  icon.addEventListener('click', e => {
-    e.preventDefault();
-    const category = icon.getAttribute('title');
-
-    toolkitIcons.forEach(ic => {
-      const ind = ic.querySelector('.indicator');
-      ind.style.opacity = '0';
-      ind.style.top = '';
-      ind.style.bottom = '';
-      ind.style.left = '';
-      ind.style.right = '';
-      ind.style.transform = '';
-    });
-
-    const indicator = icon.querySelector('.indicator');
-    const offsets = indicatorOffsets[category];
-    Object.keys(offsets).forEach(key => {
-      indicator.style[key] = offsets[key];
-    });
-    indicator.style.opacity = '1';
-
-    toolkitPages.forEach(pg => pg.classList.remove('active'));
-    const targetPage = document.getElementById(icon.dataset.page);
-    if (targetPage) targetPage.classList.add('active');
-
-    toolkitContainer.classList.add('active');
+// === Close Button on Chapter Pages ===
+document.querySelectorAll(".close-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const page = btn.closest(".toolkit-page");
+    page.classList.remove("active", "fullscreen");
   });
-});
-
-// === Book Logic (Arithmetic) ===
-const bookFront = document.getElementById("bookFront");
-const bookPages = document.getElementById("bookPages");
-
-bookFront.addEventListener("click", () => {
-  // Hide cover
-  bookFront.style.display = "none";
-  // Show Table of Contents
-  bookPages.style.display = "block";
 });

@@ -84,15 +84,25 @@
     <!-- Left side: Text -->
     <div class="home-text">
       <h1 data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0"
-     data-aos-duration="1000" >Hello, I'm <span>Fermina Cancino</span></h1>
-      <p data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0"
-     data-aos-duration="2000">Electronics Engineer & Developer</p>
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          data-aos-offset="0"
+          data-aos-duration="1000" class="bouncy">
+        <span>H</span><span>e</span><span>l</span><span>l</span><span>o</span><span>,</span>
+        <span> </span><br>
+        <span>I</span><span>'</span><span>m</span>
+        <span> </span>
+        <span>F</span><span>e</span><span>r</span><span>m</span><span>i</span><span>n</span><span>a</span><span>.</span>
+      </h1>
+
+      <p class="bouncy-sub" data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          data-aos-offset="0"
+          data-aos-duration="2000">
+        Electronics Engineer & Developer
+      </p>
+
 
       <!-- Social Links -->
       <div data-aos="fade-zoom-in"
@@ -211,12 +221,10 @@
     </div>
   </div>
 
-  <!-- Toolkit Container -->
+<!-- Toolkit Container -->
 <div class="toolkit-container">
   <!-- Central Button -->
-  <button data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom"
-     data-aos-duration="3000" type="button" class="toolkit-btn" id="toolkitToggle">
+  <button type="button" class="toolkit-btn" id="toolkitToggle">
     <span class="btn-text">All-in-One Engineer’s Toolkit</span>
     <i class="fas fa-calculator btn-icon"></i>
     <span class="view-more">Click to View More</span>
@@ -224,17 +232,150 @@
 
   <!-- Radial Icons -->
   <div class="toolkit-icons">
-    <a href="#" data-page="page1" title="Arithmetic"><i class="fas fa-plus"></i><span class="indicator">Arithmetic & Basic Math</span></a>
-    <a href="#" data-page="page2" title="Statistics"><i class="fas fa-chart-bar"></i><span class="indicator">Statistics & Probability</span></a>
-    <a href="#" data-page="page3" title="Measurement"><i class="fas fa-ruler-combined"></i><span class="indicator">Measurement / Converters</span></a>
-    <a href="#" data-page="page4" title="Number Theory"><i class="fas fa-square-root-alt"></i><span class="indicator">Number Theory & Tools</span></a>
-    <a href="#" data-page="page5" title="Algebra"><i class="fas fa-superscript"></i><span class="indicator">Algebra</span></a>
-    <a href="#" data-page="page6" title="Geometry"><i class="fas fa-drafting-compass"></i><span class="indicator">Geometry</span></a>
-    <a href="#" data-page="page7" title="Trigonometry"><i class="fas fa-circle-notch"></i><span class="indicator">Trigonometry</span></a>
-    <a href="#" data-page="page8" title="Calculus"><i class="fas fa-infinity"></i><span class="indicator">Calculus</span></a>
+    <button type="button" data-page="page1" title="Arithmetic">
+      <i class="fas fa-plus"></i>
+      <span class="indicator">Arithmetic & Basic Math</span>
+    </button>
+    <button type="button" data-page="page2" title="Statistics">
+      <i class="fas fa-chart-bar"></i>
+      <span class="indicator">Statistics & Probability</span>
+    </button>
+    <button type="button" data-page="page3" title="Measurement">
+      <i class="fas fa-ruler-combined"></i>
+      <span class="indicator">Measurement / Converters</span>
+    </button>
+    <button type="button" data-page="page4" title="Number Theory">
+      <i class="fas fa-square-root-alt"></i>
+      <span class="indicator">Number Theory & Tools</span>
+    </button>
+    <button type="button" data-page="page5" title="Algebra">
+      <i class="fas fa-superscript"></i>
+      <span class="indicator">Algebra</span>
+    </button>
+    <button type="button" data-page="page6" title="Geometry">
+      <i class="fas fa-drafting-compass"></i>
+      <span class="indicator">Geometry</span>
+    </button>
+    <button type="button" data-page="page7" title="Trigonometry">
+      <i class="fas fa-circle-notch"></i>
+      <span class="indicator">Trigonometry</span>
+    </button>
+    <button type="button" data-page="page8" title="Calculus">
+      <i class="fas fa-infinity"></i>
+      <span class="indicator">Calculus</span>
+    </button>
   </div>
 </div>
 
+<!-- Toolkit Pages -->
+<div class="toolkit-pages">
+  <!-- Page 1: Arithmetic -->
+  <div class="toolkit-page" id="page1">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="arithmetic.png" alt="Arithmetic Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      
+      <p>Perform basic operations, work with fractions, analyze ratios, check number properties, and convert between decimals, percentages, and ratios.
+      </p>
+      <h2>Arithmetic & Basic Math</h2>
+    </div>
+  </div>
+
+  <!-- Page 2: Statistics -->
+  <div class="toolkit-page" id="page2">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="probability.png" alt="Statistics Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Statistics & Probability</h2>
+      <p>Calculate key statistics, analyze data variability, solve probability problems, and work with combinations, permutations, and expected values.</p>
+    </div>
+  </div>
+
+  <!-- Page 3: Measurement -->
+  <div class="toolkit-page" id="page3">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="measurements.png" alt="Measurement Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Measurement / Converters</h2>
+      <p>Easily convert between units for length, area, volume, speed, temperature, time, and more.</p>
+    </div>
+  </div>
+
+  <!-- Page 4: Number Theory -->
+  <div class="toolkit-page" id="page4">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="numtheory.png" alt="Number Theory Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Number Theory & Tools</h2>
+      <p>Convert number bases, check primes, factor numbers, find GCD/LCM, and generate number sequences for advanced math tasks.</p>
+    </div>
+  </div>
+
+  <!-- Page 5: Algebra -->
+  <div class="toolkit-page" id="page5">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="algebra.png" alt="Algebra Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Algebra</h2>
+      <p>Solve and simplify equations, factor expressions, and handle systems of equations with tools for linear, quadratic, and cubic problems.
+      </p>
+    </div>
+  </div>
+
+  <!-- Page 6: Geometry -->
+  <div class="toolkit-page" id="page6">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="geometry.png" alt="Geometry Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Geometry</h2>
+      <p>Quickly calculate area, perimeter, volume, and surface area for a wide range of 2D and 3D shapes.</p>
+    </div>
+  </div>
+
+  <!-- Page 7: Trigonometry -->
+  <div class="toolkit-page" id="page7">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="trigonometry.png" alt="Trigonometry Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Trigonometry</h2>
+      <p>Evaluate trigonometric functions, solve triangles, convert angles, and check identities for all your trigonometry needs.</p>
+    </div>
+  </div>
+
+  <!-- Page 8: Calculus -->
+  <div class="toolkit-page" id="page8">
+    <button class="close-btn" title="Close">×</button>
+    <div class="chapter-front">
+      <img src="calculus.png" alt="Calculus Cover">
+      <div class="overlay"></div>
+    </div>
+    <div class="chapter-content">
+      <h2>Calculus</h2>
+      <p>Find derivatives, integrals, limits, and series expansions to tackle core calculus problems with ease.</p>
+    </div>
+  </div>
+</div>
 
 </section>
 
