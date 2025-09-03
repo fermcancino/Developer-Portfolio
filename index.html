@@ -31,23 +31,23 @@
   <!-- Navbar -->
   <header class="navbar">
     <!-- Logo -->
-    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="logo">
+    <div class="logo">
       <img src="logo.png" alt="My Logo">
     </div>
 
     <!-- Navigation -->
     <ul class="nav-links">
-      <li class="active"><a data-aos="fade-down" data-aos-duration="1000" href="#home">Home<span></span></a></li>
-      <li><a data-aos="fade-down" data-aos-duration="1500" href="#about">About<span></span></a></li>
-      <li><a data-aos="fade-down" data-aos-duration="2000" href="#projects">Projects<span></span></a></li>
-      <li><a data-aos="fade-down" data-aos-duration="2500" href="#skills">Skills<span></span></a></li>
-      <li><a data-aos="fade-down" data-aos-duration="3000" href="#certificates">Certificates<span></span></a></li>
+      <li class="active"><a  href="#home">Home<span></span></a></li>
+      <li><a href="#about">About<span></span></a></li>
+      <li><a href="#projects">Projects<span></span></a></li>
+      <li><a href="#skills">Skills<span></span></a></li>
+      <li><a href="#certificates">Certificates<span></span></a></li>
     </ul>
 
     <!-- Right Controls -->
     <div class="nav-controls">
       <!-- Theme Toggle -->
-      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2000" class="theme-toggle" id="themeToggle" title="Dark Mode">
+      <div class="theme-toggle" id="themeToggle" title="Dark Mode">
         <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
           <circle cx="12" cy="12" r="5"/>
           <g stroke="currentColor" stroke-width="2">
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Hamburger -->
-      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3000" class="menu-toggle" id="menuToggle">
+      <div class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
         <span></span>
@@ -75,46 +75,33 @@
     </div>
   </header>
 
-  <!-- Sections -->
-  <main>
-  
-<!-- Home Section -->
+<!-- Sections -->
+<main>
+
+  <!-- Home Section -->
 <section id="home" class="home-section">
   <div class="home-content">
     <!-- Left side: Text -->
     <div class="home-text">
-      <h1 data-aos="fade-zoom-in"
-          data-aos-easing="ease-in-back"
-          data-aos-delay="300"
-          data-aos-offset="0"
-          data-aos-duration="1000" class="bouncy">
-        <span>H</span><span>e</span><span>l</span><span>l</span><span>o</span><span>,</span>
-        <span> </span><br>
-        <span>I</span><span>'</span><span>m</span>
-        <span> </span>
-        <span>F</span><span>e</span><span>r</span><span>m</span><span>i</span><span>n</span><span>a</span><span>.</span>
+      <h1 class="bouncy">
+        <span style="--i:0">H</span><span style="--i:1">e</span><span style="--i:2">l</span>
+        <span style="--i:3">l</span><span style="--i:4">o</span><span style="--i:5">,</span>
+        <span style="--i:6"> </span><br>
+        <span style="--i:7">I</span><span style="--i:8">'</span><span style="--i:9">m</span>
+        <span style="--i:10"> </span>
+        <span style="--i:11">F</span><span style="--i:12">e</span><span style="--i:13">r</span>
+        <span style="--i:14">m</span><span style="--i:15">i</span><span style="--i:16">n</span>
+        <span style="--i:17">a</span><span style="--i:18">.</span>
       </h1>
 
-      <p class="bouncy-sub" data-aos="fade-zoom-in"
-          data-aos-easing="ease-in-back"
-          data-aos-delay="300"
-          data-aos-offset="0"
-          data-aos-duration="2000">
+      <p class="bouncy-sub">
         Electronics Engineer & Developer
       </p>
 
 
       <!-- Social Links -->
-      <div data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0"
-     data-aos-duration="2500"class="navigation">
-        <ul data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0"
-     data-aos-duration="3000">
+      <div class="navigation">
+        <ul >
           <li class="list">
             <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank">
               <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
@@ -143,29 +130,22 @@
     </div>
 
     <!-- Right side: Image -->
-    <div data-aos="zoom-in"
-     data-aos-duration="3000" class="home-image">
+    <div class="home-image">
       <img src="fermina.png" alt="Fermina Cancino" class="profile-img">
     </div>
   </div>
 </section>
 
-<!-- About Section -->
+    <!-- About Section -->
 <section class="about-section" id="about">
   <div class="about-container">
     
-    <div data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" 
-     data-aos-duration="1500" class="about-image">
+    <div class="about-image">
       <img src="fermina.png" alt="About Me">
     </div>
 
     <!-- About Text -->
-    <div data-aos="fade-left"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" 
-     data-aos-duration="2000"class="about-text">
+    <div class="about-text">
       <h2>About Me</h2>
       <p>
         I’m a passionate developer with a background in Electronics Engineering, 
@@ -173,6 +153,7 @@
         My focus is on building clean, responsive, and user-friendly applications 
         with modern technologies.
       </p>
+      <br>
       <p>
         I enjoy solving problems, learning new skills, and experimenting with 
         creative UI designs like neumorphism and glassmorphism.  
@@ -180,29 +161,24 @@
         <strong>Automation Engineer</strong>, combining my technical foundation 
         with software engineering.
       </p>
+      <br>
       <p>
         One of my proudest projects is my 
         <strong>All-in-One Engineer’s Toolkit Calculator</strong> — 
         a fully responsive application that integrates scientific, base conversion, 
-        unit, and currency calculations in a single platform.
-      </p>
-      <a href="#projects" class="btn">Explore My Work</a>
+        unit, and currency calculations in a single platform.</p>
     </div>
    </div>
   </section>
 
-<!-- Project Section -->
+  <!-- Project Section -->
 <section id="projects" class="projects-section">
-  <h2 data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom"
-     data-aos-duration="1000" class="section-title">My Project</h2>
+  <h2 class="section-title">My Project</h2>
 
   <div class="project-wrapper">
     <!-- Image card -->
     <div class="project-card card-image">
-      <img data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom"
-     data-aos-duration="2000" src="frontpage.png" alt="Engineer Toolkit">
+      <img src="frontpage.png" alt="Engineer Toolkit">
     </div>
 
     <!-- Description card -->
@@ -270,17 +246,16 @@
 <!-- Toolkit Pages -->
 <div class="toolkit-pages">
   <!-- Page 1: Arithmetic -->
-  <div class="toolkit-page" id="page1">
+  <div class="toolkit-page" id="page1"><!--container -->
     <button class="close-btn" title="Close">×</button>
-    <div class="chapter-front">
+    <div class="chapter-front"><!--card -->
       <img src="arithmetic.png" alt="Arithmetic Cover">
       <div class="overlay"></div>
     </div>
-    <div class="chapter-content">
-      
-      <p>Perform basic operations, work with fractions, analyze ratios, check number properties, and convert between decimals, percentages, and ratios.
-      </p>
+    <div class="chapter-content"> <!--intro -->
       <h2>Arithmetic & Basic Math</h2>
+      <p>Perform basic operations, work with fractions, analyze ratios, check number properties, and convert between decimals, percentages, and ratios.
+      </p>      
     </div>
   </div>
 
@@ -379,31 +354,31 @@
 
 </section>
 
-<!-- Skills Section -->
+  <!-- Skills Section -->
 <section id="skills" class="skills-section">
-  <h2 data-aos="zoom-in-down" data-aos-duration="1000" class="section-title">My Skills</h2>
+  <h2 class="section-title">My Skills</h2>
   <div class="skills-container">
-    <div data-aos="zoom-in-right" data-aos-duration="3000" class="skill-card">
+    <div class="skill-card">
       <i class="fab fa-python"></i>
       <h3>Python</h3>
     </div>
-    <div data-aos="zoom-in-right" data-aos-duration="2000" class="skill-card">
+    <div class="skill-card">
       <i class="fab fa-js-square"></i>
       <h3>JavaScript</h3>
     </div>
-    <div data-aos="zoom-in-right" data-aos-duration="1000" class="skill-card">
+    <div class="skill-card">
       <i class="fab fa-html5"></i>
       <h3>HTML5</h3>
     </div>
-    <div data-aos="zoom-in-left" data-aos-duration="1000" class="skill-card">
+    <div class="skill-card">
       <i class="fab fa-css3-alt"></i>
       <h3>CSS3</h3>
     </div>
-    <div data-aos="zoom-in-left" data-aos-duration="2000" class="skill-card">
+    <div class="skill-card">
       <i class="fas fa-cogs"></i>
       <h3>Automation</h3>
     </div>
-    <div data-aos="zoom-in-left" data-aos-duration="3000" class="skill-card">
+    <div class="skill-card">
       <i class="fab fa-github"></i>
       <h3>GitHub</h3>
     </div>
@@ -412,12 +387,12 @@
 
 <!-- Certificates Section -->
 <section id="certificates" class="certificates-section">
-  <h2 data-aos="zoom-in-up" data-aos-duration="3000" class="section-title">Certificates</h2>
+  <h2 class="section-title">Certificates</h2>
   <div class="certificates-grid">
     
     <!-- Certificate Card -->
     <div class="certificate-card">
-      <div data-aos="zoom-out-right" data-aos-duration="3000" class="certificate-inner">
+      <div class="certificate-inner">
         <!-- Front -->
         <div class="certificate-front">
           <img src="python.jpg" alt="Certificate 1">
@@ -432,7 +407,7 @@
     </div>
 
     <div class="certificate-card">
-      <div data-aos="zoom-out-right" data-aos-duration="2000" class="certificate-inner">
+      <div class="certificate-inner">
         <div class="certificate-front">
           <img src="javascript.jpg" alt="Certificate 2">
         </div>
@@ -445,7 +420,7 @@
     </div>
 
     <div class="certificate-card">
-      <div data-aos="zoom-out-right" data-aos-duration="1000" class="certificate-inner">
+      <div class="certificate-inner">
         <div class="certificate-front">
           <img src="html.jpg" alt="Certificate 2">
         </div>
@@ -458,7 +433,7 @@
     </div>
 
     <div class="certificate-card">
-      <div data-aos="zoom-out-left" data-aos-duration="1000" class="certificate-inner">
+      <div class="certificate-inner">
         <div class="certificate-front">
           <img src="css.jpg" alt="Certificate 2">
         </div>
@@ -471,7 +446,7 @@
     </div>
 
     <div class="certificate-card">
-      <div data-aos="zoom-out-left" data-aos-duration="2000" class="certificate-inner">
+      <div class="certificate-inner">
         <div class="certificate-front">
           <img src="frontend.jpg" alt="Certificate 2">
         </div>
@@ -484,7 +459,7 @@
     </div>
 
     <div class="certificate-card">
-      <div data-aos="zoom-out-left" data-aos-duration="3000" class="certificate-inner">
+      <div class="certificate-inner">
         <div class="certificate-front">
           <img src="python development.jpg" alt="Certificate 2">
         </div>

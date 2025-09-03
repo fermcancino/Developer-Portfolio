@@ -168,3 +168,25 @@ document.querySelectorAll(".close-btn").forEach(btn => {
     page.classList.remove("active", "fullscreen");
   });
 });
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.toolkit-page');
+
+  pages.forEach(page => {
+    if (page.classList.contains('active')) {
+      // fade out current
+      page.classList.remove('active');
+      // wait for transition to finish before hiding
+      page.addEventListener('transitionend', function handler() {
+        page.style.display = 'none';
+        page.removeEventListener('transitionend', handler);
+      });
+    }
+  });
+
+  // show new page
+  const newPage = document.getElementById(pageId);
+  newPage.style.display = 'block'; // make it render first
+  requestAnimationFrame(() => {   // next frame: trigger transition
+    newPage.classList.add('active');
+  });
+}
