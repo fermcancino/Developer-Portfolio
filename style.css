@@ -1354,8 +1354,8 @@ body.dark .card-description {
 /* ===== Responsive: small devices ===== */
 @media (max-width: 768px) {
   .project-wrapper {
-    width: 90%;          
-    height: 250px;       
+    width: 95%;          
+    height: 230px;       
     margin-bottom: 30px;     
     position: relative;
     display: flex;
@@ -2284,3 +2284,4 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   .carousel-btn { font-size: 1.5rem; padding: 0.3rem 0.6rem; }
   .info-btn { width: 30px; height: 30px; font-size: 1rem; }
 }
+
