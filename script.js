@@ -190,3 +190,108 @@ function showPage(pageId) {
     newPage.classList.add('active');
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all hire buttons
+  const hireButtons = document.querySelectorAll(".explore-btn");
+
+  hireButtons.forEach(btn => {
+    const modalId = btn.dataset.modal; // <a class="explore-btn" data-modal="projectModal1">
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    const closeBtn = modal.querySelector(".modal-close");
+    const track = modal.querySelector(".carousel-track");
+    const slides = Array.from(track.children);
+    const prevBtn = modal.querySelector(".carousel-btn.prev");
+    const nextBtn = modal.querySelector(".carousel-btn.next");
+    const infoBtn = modal.querySelector(".info-btn");
+    const explanation = modal.querySelector(".explanation-card");
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    // Open modal
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.classList.add("active");
+      setupCarousel();
+      updateExplanation();
+    });
+
+    // Close modal
+    closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("active");
+    });
+
+    // Carousel setup (flat style with partial slides visible)
+    function setupCarousel() {
+      slides.forEach((slide, index) => {
+        slide.style.position = "absolute";
+        slide.style.top = "0";
+        slide.style.left = "50%";
+        slide.style.transform = `translateX(-50%) scale(0.8)`;
+        slide.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+        slide.style.opacity = "0.5";
+        slide.style.zIndex = "1";
+      });
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        if (index === currentIndex) {
+          slide.style.transform = "translateX(-50%) scale(1)";
+          slide.style.opacity = "1";
+          slide.style.zIndex = "3";
+        } else if (index === (currentIndex - 1 + totalSlides) % totalSlides) {
+          slide.style.transform = "translateX(-120%) scale(0.8)";
+          slide.style.opacity = "0.6";
+          slide.style.zIndex = "2";
+        } else if (index === (currentIndex + 1) % totalSlides) {
+          slide.style.transform = "translateX(20%) scale(0.8)";
+          slide.style.opacity = "0.6";
+          slide.style.zIndex = "2";
+        } else {
+          slide.style.transform = "translateX(-50%) scale(0.6)";
+          slide.style.opacity = "0.3";
+          slide.style.zIndex = "0";
+        }
+      });
+      updateExplanation();
+    }
+
+    // Carousel navigation
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    // Info toggle
+    infoBtn.addEventListener("click", () => {
+      explanation.classList.toggle("active");
+    });
+
+    // Update explanation dynamically
+    function updateExplanation() {
+      const activeSlide = slides[currentIndex];
+      const text = activeSlide.dataset.explanation || "";
+      explanation.innerHTML = `<p>${text}</p>`;
+    }
+  });
+
+  // Explore buttons open URL in new tab
+  document.querySelectorAll(".live-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const url = btn.dataset.url;
+      if (url) window.open(url, "_blank");
+    });
+  });
+});

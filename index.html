@@ -61,7 +61,7 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </g>
         </svg>
-        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="display:none;">
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="1 -3 26 26" fill="currentColor" width="30" height="30" style="display:none;">
           <path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79z"/>
         </svg>
       </div>
@@ -131,8 +131,10 @@
 
     <!-- Right side: Image -->
     <div class="home-image">
-      <img src="fermina.png" alt="Fermina Cancino" class="profile-img">
+      <img src="light-fermina.png" alt="Fermina Cancino" class="profile-img light">
+      <img src="dark-fermina.png" alt="Fermina Cancino" class="profile-img dark">
     </div>
+
   </div>
 </section>
 
@@ -146,7 +148,7 @@
 
     <!-- About Text -->
     <div class="about-text">
-      <h2>About Me</h2>
+      <h2 class="section-title">About Me</h2>
       <p>
         I’m a passionate developer with a background in Electronics Engineering, 
         now transitioning into automation and software development.  
@@ -210,30 +212,30 @@
   <div class="toolkit-icons">
     <button type="button" data-page="page1" title="Arithmetic">
       <i class="fas fa-plus"></i>
-      <span class="indicator">Arithmetic & Basic Math</span>
+      <span class="indicator">Arithmetic &<br>Basic Math</span>
     </button>
     <button type="button" data-page="page2" title="Statistics">
-      <i class="fas fa-chart-bar"></i>
-      <span class="indicator">Statistics & Probability</span>
+      <i class="fas fa-chart-line"></i>
+      <span class="indicator">Probability &<br>Statistics</span>
     </button>
     <button type="button" data-page="page3" title="Measurement">
       <i class="fas fa-ruler-combined"></i>
-      <span class="indicator">Measurement / Converters</span>
+      <span class="indicator">Measurement<br>& Converter</span>
     </button>
     <button type="button" data-page="page4" title="Number Theory">
       <i class="fas fa-square-root-alt"></i>
-      <span class="indicator">Number Theory & Tools</span>
+      <span class="indicator">Number<br>Theory Tools</span>
     </button>
     <button type="button" data-page="page5" title="Algebra">
       <i class="fas fa-superscript"></i>
       <span class="indicator">Algebra</span>
     </button>
     <button type="button" data-page="page6" title="Geometry">
-      <i class="fas fa-drafting-compass"></i>
+      <i class="fas fa-shapes"></i>
       <span class="indicator">Geometry</span>
     </button>
     <button type="button" data-page="page7" title="Trigonometry">
-      <i class="fas fa-circle-notch"></i>
+      <i class="fas fa-drafting-compass"></i>
       <span class="indicator">Trigonometry</span>
     </button>
     <button type="button" data-page="page8" title="Calculus">
@@ -255,8 +257,9 @@
     <div class="chapter-content"> <!--intro -->
       <h2>Arithmetic & Basic Math</h2>
       <p>Perform basic operations, work with fractions, analyze ratios, check number properties, and convert between decimals, percentages, and ratios.
-      </p>      
+      </p>  
     </div>
+    <a class="explore-btn" data-modal="projectModal1">Explore Project</a>
   </div>
 
   <!-- Page 2: Statistics -->
@@ -267,9 +270,10 @@
       <div class="overlay"></div>
     </div>
     <div class="chapter-content">
-      <h2>Statistics & Probability</h2>
+      <h2>Probability & Statistics</h2>
       <p>Calculate key statistics, analyze data variability, solve probability problems, and work with combinations, permutations, and expected values.</p>
     </div>
+    <a class="explore-btn" data-modal="projectModal2">Explore Project</a>
   </div>
 
   <!-- Page 3: Measurement -->
@@ -280,7 +284,7 @@
       <div class="overlay"></div>
     </div>
     <div class="chapter-content">
-      <h2>Measurement / Converters</h2>
+      <h2>Measurement & Converter</h2>
       <p>Easily convert between units for length, area, volume, speed, temperature, time, and more.</p>
     </div>
   </div>
@@ -293,7 +297,7 @@
       <div class="overlay"></div>
     </div>
     <div class="chapter-content">
-      <h2>Number Theory & Tools</h2>
+      <h2>Number Theory Tools</h2>
       <p>Convert number bases, check primes, factor numbers, find GCD/LCM, and generate number sequences for advanced math tasks.</p>
     </div>
   </div>
@@ -353,6 +357,83 @@
 </div>
 
 </section>
+
+
+  <!-- Modal for Arithmetic Project -->
+<!-- Example Modal 1 -->
+<div class="modal" id="projectModal1">
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+
+    <!-- Carousel -->
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide" data-explanation="Explanation for Step 1">
+          <img src="1.png" alt="Step 1">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 2">
+          <img src="2.png" alt="Step 2">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 3">
+          <img src="3.png" alt="Step 3">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 4">
+          <img src="4.png" alt="Step 4">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+
+    <!-- Info Button -->
+    <button class="info-btn">?</button>
+    <div class="explanation-card"></div>
+  </div>
+</div>
+<!-- Example Modal 1 -->
+<div class="modal" id="projectModal2">
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+
+    <!-- Carousel -->
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide" data-explanation="Explanation for Step 1">
+          <img src="frontpage.png" alt="Step 1">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 2">
+          <img src="arithmetic.png" alt="Step 2">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 3">
+          <img src="numtheory.png" alt="Step 3">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+        <div class="carousel-slide" data-explanation="Explanation for Step 4">
+          <img src="measurements.png" alt="Step 4">
+          <button class="explore-btn" data-url="#">Explore Project</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+
+    <!-- Info Button -->
+    <button class="info-btn">?</button>
+    <div class="explanation-card"></div>
+  </div>
+</div>
+
+
 
   <!-- Skills Section -->
 <section id="skills" class="skills-section">
@@ -474,7 +555,27 @@
   </div>
 </section>
 
+<footer class="footer">
+  <div class="footer-content">
+    <h3>🚀 Let’s Work Together</h3>
+    <p>If you’re looking for someone passionate about building clean, creative, and functional web projects — I’d love to connect!</p>
+    <div class="social-links">
+      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:fermcancino@gmail.com"><i class="fas fa-envelope"></i></a>
+      <!-- Viber -->
+      <a href="viber://chat?number=+639463002207" title="Viber">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/viber.svg" 
+             alt="Viber" class="viber-icon">
+      </a>
+    </div>
+
+    <p class="copy">&copy; 2025 Fermina Cancino. All Rights Reserved.</p>
+  </div>
+</footer>
+
 </main>
+
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
