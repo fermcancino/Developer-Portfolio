@@ -161,8 +161,8 @@ body.dark .nav-links li a:hover {
 /* Theme Toggle */
 .theme-toggle {
   cursor: pointer;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #e0e0e0;
   box-shadow: 5px 5px 12px #c5c5c5, -5px -5px 12px #ffffff;
@@ -182,8 +182,8 @@ body.dark .nav-links li a:hover {
   display: none; 
   flex-direction: column;
   justify-content: space-between;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   z-index: 1100;
   border-radius: 50%;
@@ -273,7 +273,7 @@ body.dark .theme-toggle {
     top: 60px;
     right: 20px;
     width: 220px;
-    height: 270px;
+    height: 230px;
     border-radius: 16px;
     padding: 1rem;
     transition: all 0.3s ease;
@@ -512,7 +512,7 @@ body.dark .profile-img:hover {
   .home-section {
     height: auto;       
     max-height: none;  
-    padding: 1rem 0;
+    padding: 0.7rem 0;
     flex-direction: column; /* stack vertically */
     justify-content: flex-start; /* start from top */
     align-items: center; 
@@ -797,7 +797,7 @@ body.dark .about-text p {
 /* Responsive */
 @media (max-width: 768px) {
   .about-section {
-    padding: 1.3rem;
+    padding: 1.1rem;
     justify-content: center;
   }
   .about-container {
@@ -805,7 +805,7 @@ body.dark .about-text p {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 1.9rem;
     width: 97%;
   }
     .about-text {
@@ -1081,7 +1081,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Front - Light/Dark styles */
+/* Front */
 .certificate-front {
   display: flex;
   align-items: center;
@@ -1191,10 +1191,11 @@ body {
   }
 
   .certificate-back p {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
   .certificate-back a {
     font-size: 0.9em;
+    white-space: nowrap;
   }
   .certificate-inner {
     height: 210px;
@@ -1499,9 +1500,9 @@ body.dark .card-image img:hover {
   .toolkit-icons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 8px;
     width: 100%;
-    max-width: 360px; 
+    max-width: 350px; 
     justify-items: center;
   }
 
@@ -1763,7 +1764,7 @@ body.dark .toolkit-icons button .indicator { color: #00aaff; }
 
 /* Hover Glow + Bounce */
 .close-btn:hover {
-  animation: bounce 0.6s ease;
+  animation: bounceC 0.6s ease;
   box-shadow: 
     0 0 8px rgba(255, 102, 0, 0.7),
     0 0 16px rgba(255, 102, 0, 0.5),
@@ -1792,7 +1793,7 @@ body.dark .toolkit-icons button .indicator { color: #00aaff; }
   }
 }
 
-@keyframes bounce {
+@keyframes bounceC {
   0%   { transform: scale(1); }
   30%  { transform: scale(1.2); }
   50%  { transform: scale(0.95); }
@@ -2284,4 +2285,5 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   .carousel-btn { font-size: 1.5rem; padding: 0.3rem 0.6rem; }
   .info-btn { width: 30px; height: 30px; font-size: 1rem; }
 }
+
 
