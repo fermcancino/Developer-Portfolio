@@ -2148,8 +2148,6 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   transition: background-color 0.3s, box-shadow 0.3s;
   border-radius: 16px;
   padding: 1rem 2rem;
-  height: auto;           /* shrink-wrap to content */
-  max-height: 90vh;
 }
 
 .dark .modal-content {
@@ -2402,7 +2400,6 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   .modal-content {
     width: 90%;
     padding: 0.6rem;
-    height: 37vh !important;   
   }
 
   .carousel-slide img {
@@ -2418,6 +2415,9 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     max-height: 13vh;        
     font-size: 0.85rem;
   }
+  .carousel {
+    height: 32vh;
+  }
 }
 
 
@@ -2430,7 +2430,6 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   .modal-content {
     width: 90%;
     padding: 0.6rem; 
-    height: 370px;     
   }
 
   .carousel-slide img {
@@ -2445,6 +2444,9 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   .explanation-card {
     max-height: 20vh;        
     font-size: 0.85rem;
+  }
+  .carousel {
+    height: 33vh;
   }
 }
 
