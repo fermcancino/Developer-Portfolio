@@ -191,13 +191,11 @@ function showPage(pageId) {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all hire buttons
   const hireButtons = document.querySelectorAll(".explore-btn");
 
   hireButtons.forEach(btn => {
-    const modalId = btn.dataset.modal; // <a class="explore-btn" data-modal="projectModal1">
+    const modalId = btn.dataset.modal;
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
@@ -212,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const totalSlides = slides.length;
 
-    // Open modal
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       modal.classList.add("active");
@@ -220,19 +217,17 @@ document.addEventListener("DOMContentLoaded", () => {
       updateExplanation();
     });
 
-    // Close modal
     closeBtn.addEventListener("click", () => modal.classList.remove("active"));
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.classList.remove("active");
     });
 
-    // Carousel setup (flat style with partial slides visible)
     function setupCarousel() {
-      slides.forEach((slide, index) => {
+      slides.forEach(slide => {
         slide.style.position = "absolute";
         slide.style.top = "0";
         slide.style.left = "50%";
-        slide.style.transform = `translateX(-50%) scale(0.8)`;
+        slide.style.transform = "translateX(-50%) scale(0.8)";
         slide.style.transition = "transform 0.5s ease, opacity 0.5s ease";
         slide.style.opacity = "0.5";
         slide.style.zIndex = "1";
@@ -263,31 +258,29 @@ document.addEventListener("DOMContentLoaded", () => {
       updateExplanation();
     }
 
-    // Carousel navigation
-    prevBtn.addEventListener("click", () => {
+    prevBtn?.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
       updateCarousel();
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn?.addEventListener("click", () => {
       currentIndex = (currentIndex + 1) % totalSlides;
       updateCarousel();
     });
 
-    // Info toggle
-    infoBtn.addEventListener("click", () => {
+    infoBtn?.addEventListener("click", () => {
       explanation.classList.toggle("active");
     });
 
-    // Update explanation dynamically
     function updateExplanation() {
       const activeSlide = slides[currentIndex];
-      const text = activeSlide.dataset.explanation || "";
-      explanation.innerHTML = `<p>${text}</p>`;
+      const raw = activeSlide.dataset.explanation || "";
+      const text = raw.replace(/\\n/g, "<br>");
+      explanation.innerHTML = text;
     }
   });
 
-  // Explore buttons open URL in new tab
+  // Explore buttons open URL
   document.querySelectorAll(".live-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const url = btn.dataset.url;
@@ -295,3 +288,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+const box = document.querySelector('.explanation-card');
+const slide = document.querySelector('.carousel-slide');
+
+const raw = slide.dataset.explanation || '';
+// turn the literal "\n" into actual newlines
+const withNewlines = raw.replace(/\\n/g, '\n').trim();
+
+box.textContent = withNewlines; // keep it safe; CSS will render the breaks
