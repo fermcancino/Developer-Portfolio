@@ -2134,6 +2134,24 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   -webkit-backdrop-filter: blur(12px);
 }
 
+.info-btn:hover,
+.modal-close:hover {
+  color: #e67e22; /* orange */
+  text-shadow: 0 0 6px rgba(230, 126, 34, 0.8),
+               0 0 12px rgba(230, 126, 34, 0.6),
+               0 0 20px rgba(230, 126, 34, 0.5);
+  transform: scale(1.4);
+  transition: 0.3s ease-in-out;
+}
+
+/* Dark mode */
+.dark .info-btn:hover,
+.dark .modal-close:hover {
+  color: #00aaff; /* blue */
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.9),
+               0 0 12px rgba(0, 170, 255, 0.7),
+               0 0 20px rgba(0, 170, 255, 0.6);
+}
 
 .modal.active {
   display: flex;
@@ -2229,6 +2247,10 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   color: #fff;
 }
 
+ { 
+  transform: scale(1.05); 
+}
+
 /* ===== Carousel ===== */
 .carousel {
   perspective: 1200px;
@@ -2256,8 +2278,7 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
-.carousel-slide img:hover,
-.info-btn:hover  { 
+.carousel-slide img:hover { 
   transform: scale(1.05); 
 }
 
@@ -2416,7 +2437,7 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     font-size: 0.85rem;
   }
   .carousel {
-    height: 32vh;
+    height: 30vh;
   }
 }
 
@@ -2446,7 +2467,7 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     font-size: 0.85rem;
   }
   .carousel {
-    height: 33vh;
+    height: 31vh;
   }
 }
 
