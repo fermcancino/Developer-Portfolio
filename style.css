@@ -506,6 +506,17 @@ body.dark .profile-img:hover {
 }
 
 /* Responsive Layout */
+@media (max-width: 1024px) {
+  .home-content {
+    flex-direction: column-reverse;
+    min-height: auto;
+    text-align: center;
+    gap: 0;
+  }
+  .navigation {
+    margin: 2rem 0 0 0;
+  }
+}
 @media (max-width: 768px) {
   .home-section {      
     padding: 0.7rem 0;
@@ -544,7 +555,7 @@ body.dark .profile-img:hover {
 /* social links */
 .navigation {
     position: relative;
-    width: 250px;
+    width: 300px;
     height: 70px;
     background: linear-gradient(45deg, #f4f1e8, #dcccbe);
     box-shadow: 6px 6px 12px #c9bbae,
@@ -697,15 +708,19 @@ body.dark .profile-img:hover {
 
 .navigation ul li:nth-child(1):hover ~ .indicator {
     opacity: 1;
-    transform: translateX(-70px);
+    transform: translateX(-105px);
 }
 .navigation ul li:nth-child(2):hover ~ .indicator {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-35px);
 }
 .navigation ul li:nth-child(3):hover ~ .indicator {
     opacity: 1;
-    transform: translateX(70px);
+    transform: translateX(35px);
+}
+.navigation ul li:nth-child(4):hover ~ .indicator {
+    opacity: 1;
+    transform: translateX(105px);
 }
 
 /* About Section */
@@ -750,7 +765,7 @@ body.dark .about-container {
 }
 
 .about-image img {
-  width: clamp(180px, 30vw, 300px);
+  width: clamp(160px, 30vw, 300px);
   border-radius: 20px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -827,6 +842,7 @@ body.dark .about-text p {
     text-align: center !important; 
   }
 }
+
 
 /* skills Section Title */
 .skills-section {
@@ -977,6 +993,12 @@ body.dark .skill-card i::after {
 
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
 @media (max-width: 768px) {
   .skills-section {
     padding: 2rem;
@@ -1173,6 +1195,12 @@ body {
 }
 
 /* Responsive */
+@media screen and (max-width: 1024px) {
+  .certificates-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .certificates-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1232,7 +1260,7 @@ body.dark .section-title:hover {
   justify-content: center;
   flex-direction: column;  
   align-items: center; 
-  padding: 4rem 1.5rem;
+  padding: 4rem 1.5rem 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -1359,10 +1387,59 @@ body.dark .card-description {
 }
 
 /* ===== Responsive: small devices ===== */
+@media (max-width: 1024px) {
+  .project-wrapper {
+    width: 80% !important;          
+    height: 300px !important;
+    margin-bottom: 30px;     
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;   
+  }
+  .card-description {
+    overflow-y: auto;
+    transform: translateY(0); 
+  }
+  .card-image,
+  .card-description {
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+  }
+
+  /* Image centered */
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    object-position: center; 
+  }
+   .card-image img:hover {
+  border-radius: 20px 20px 0 0 !important;
+}
+  /* Base states */
+  .card-image {
+    transform: translateY(0);
+    z-index: 2;
+  }
+  .project-wrapper:hover .card-image {
+    transform: translateY(0); 
+  }
+
+  .project-wrapper:hover .card-description {
+    transform: translateY(100%);  
+    padding: 30px;  
+    opacity: 1;
+  }
+}
 @media (max-width: 768px) {
   .project-wrapper {
     width: 95%;          
-    height: 230px;       
+    height: 230px !important;       
     margin-bottom: 30px;     
     position: relative;
     display: flex;
@@ -1472,13 +1549,27 @@ body.dark .card-image img:hover {
 }
 
 /* Mobile responsive */
+@media (max-width: 1024px) {
+  .toolkit-icons {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 15px !important;
+    width: 100%;
+  }
+  .toolkit-icons button .indicator {    
+    height: 60px;
+    width: 60px;
+    font-size: 11px;
+  } 
+}
+
 @media (max-width: 768px) {
   .toolkit-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 0.1rem;
+    margin: 0 auto;
   }
 
   .toolkit-btn {         
@@ -1499,24 +1590,25 @@ body.dark .card-image img:hover {
   }
 
   .toolkit-btn .view-more {
-    font-size: 0.8rem ;
+    font-size: 0.8rem !important;
     display: block;
   }
 
   .toolkit-icons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 15px !important;
     width: 100%;
     max-width: 350px; 
     justify-items: center;
+    margin-top: 15px !important;
   }
 
   .toolkit-icons button {
     width: 50px ;
     height: 50px ;
     font-size: 1.2rem ;
-    margin-top: 30px;
+    margin-top: 50px;
   }
   
   .toolkit-icons button .indicator {    
@@ -1576,8 +1668,8 @@ body.dark .toolkit-btn {
 .toolkit-icons button  {
   opacity: 0;
   transform: translateY(30px); 
-  transition: all 0.3s ease;
-  transform: scale(1.05);
+  transition: all 0.2s ease;
+  transform: scale(1.1);
   border-radius: 50%;
   width: 60px; 
   height: 60px; 
@@ -1588,10 +1680,6 @@ body.dark .toolkit-btn {
   align-items: center; 
   justify-content: center; 
   cursor: pointer;
-}
-.toolkit-icons button:focus {
-  background-color: #cc7722; /* orange-brown */
-  color: red;
 }
 
 /* Show with stagger when active */
@@ -1632,7 +1720,7 @@ body.dark .toolkit-btn {
   left: auto;
   width: auto;
   height: auto;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   margin-top: 40px;
 }
 
@@ -1644,8 +1732,12 @@ body.dark .toolkit-btn {
 
 /* Hover effects (light mode) */
 body.light .toolkit-btn:hover {
+  border: 1px solid #ff6600;
   color: #ff6600;
-  box-shadow: 
+  box-shadow: 8px 8px 20px #63767d, 
+    -8px -8px 20px #fff, 
+    inset -8px -8px 20px #fff, 
+    inset 8px 8px 20px #63767d,
     0 0 8px rgba(255, 102, 0, 0.7),
     0 0 16px rgba(255, 102, 0, 0.5),
     0 0 24px rgba(255, 102, 0, 0.3);
@@ -1655,7 +1747,10 @@ body.light .toolkit-btn:hover {
 body.dark .toolkit-btn:hover {
   border-color: #00aaff;
   color: #00aaff;
-  box-shadow: 
+  box-shadow: 8px 8px 20px #1a1f23, 
+            -8px -8px 20px #2c3338, 
+            inset -8px -8px 20px #2c3338, 
+            inset 8px 8px 20px #1a1f23,
     0 0 8px rgba(0, 170, 255, 0.7),
     0 0 16px rgba(0, 170, 255, 0.5),
     0 0 24px rgba(0, 170, 255, 0.3);
@@ -1684,12 +1779,12 @@ body.dark .toolkit-btn .view-more { color: #00aaff; }
 .toolkit-btn.active .view-more::before { content: attr(data-active-text); }
 
 /* Bouncing hover */
-.toolkit-btn:active { animation: bounceT 0.6s ease; }
+.toolkit-btn:active { animation: bounceT 0.3s ease; }
 @keyframes bounceT {
   0%   { transform: translateY(0); }
-  30%  { transform: translateY(-3px); }
+  30%  { transform: translateY(-1px); }
   50%  { transform: translateY(0); }
-  70%  { transform: translateY(-3px); }
+  70%  { transform: translateY(-1px); }
   100% { transform: translateY(0); }
 }
 
@@ -1717,9 +1812,15 @@ body.dark .toolkit-btn .view-more { color: #00aaff; }
 
 body.light .toolkit-icons button:hover {
   color: #ff6600;
-  box-shadow: 0 0 12px rgba(255, 102, 0, 0.7),
-              0 0 20px rgba(255, 102, 0, 0.5),
-              0 0 30px rgba(255, 102, 0, 0.3);
+  box-shadow: 8px 8px 20px #63767d, 
+    -8px -8px 20px #fff, 
+    inset -8px -8px 20px #fff, 
+    inset 8px 8px 20px #63767d,
+    0 0 8px rgba(255, 102, 0, 0.7),
+    0 0 16px rgba(255, 102, 0, 0.5),
+    0 0 24px rgba(255, 102, 0, 0.3);
+  transform: scale(0.95) translateY(-3px);
+  transition: 0.2s ease-in;
 }
 body.light .toolkit-icons button .indicator{ 
   color: #ff6600; 
@@ -1727,15 +1828,21 @@ body.light .toolkit-icons button .indicator{
 
 body.dark .toolkit-icons button:hover {
   color: #00aaff;
-  box-shadow: 0 0 12px rgba(0, 170, 255, 0.7),
-              0 0 20px rgba(0, 170, 255, 0.5),
-              0 0 30px rgba(0, 170, 255, 0.3);
+  box-shadow: 8px 8px 20px #1a1f23, 
+            -8px -8px 20px #2c3338, 
+            inset -8px -8px 20px #2c3338, 
+            inset 8px 8px 20px #1a1f23,
+            0 0 8px rgba(0, 170, 255, 0.7),
+    0 0 16px rgba(0, 170, 255, 0.5),
+    0 0 24px rgba(0, 170, 255, 0.3);
+  transform: scale(0.95) ;
+  transition: 0.2s ease;
 }
 body.dark .toolkit-icons button .indicator { color: #00aaff; }
 
 .toolkit-btn:hover:not(:active) { 
   animation: bounce .6s ease;
-  transform: scale(1.2); 
+  transform: scale(1.05); 
  }
 
 /* Toolkit Pages Container */
@@ -1851,7 +1958,7 @@ body.dark .close-btn:hover {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  display: none; /* start hidden */
+  display: none; 
 }
 
 /* visible state */
@@ -1920,6 +2027,7 @@ body.dark .toolkit-page .chapter-front img {
   .toolkit-page {
     width: 95%;
     padding: 15px;
+    margin-top: 15px;
   }
 
   .toolkit-page .chapter-content h2 {
@@ -2059,11 +2167,9 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
-  
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);  
   text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 4rem;
+  padding: 2rem;
 }
 .dark .footer {
   box-shadow:
@@ -2072,39 +2178,10 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     color: #fff;
 }
 
-
-.footer h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
 .footer p {
   font-size: 1rem;
   opacity: 0.9;
-  margin-bottom: 1.5rem;
-}
-
-
-.social-links {
-  margin: 1.5rem 0;
-}
-
-.social-links a {
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #f4d03f; /* golden hover */
-  transform: scale(1.2);
-}
-
-.copy {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-top: 1rem;
+  margin-bottom: 2.7rem !important;
 }
 
 .viber-icon {
@@ -2163,13 +2240,13 @@ body.dark .toolkit-page:hover .chapter-content h2 {
 
 .modal-content {
   position: relative;
-  width: 90%;
+  width: 100%;
   width: 700px;
   background: linear-gradient(145deg, #f4f1e8, #dcccbe);
   box-shadow: 6px 6px 12px #c9bbae, -6px -6px 12px #ffffff; 
   transition: background-color 0.3s, box-shadow 0.3s;
-  border-radius: 16px;
-  padding: 1rem 2rem;
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
 }
 
 .dark .modal-content {
@@ -2243,16 +2320,11 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   font-size: 2rem;
   background: none;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
   color: #231f20;
 }
 .dark .modal-close {
   color: #fff;
-}
-
- { 
-  transform: scale(1.05); 
 }
 
 /* ===== Carousel ===== */
@@ -2279,8 +2351,12 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   width: 90%;
   max-height: 50vh;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 10px;
+  border: 2px solid #d2b48c;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.carousel-slide img {
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 .carousel-slide img:hover { 
   transform: scale(1.05); 
@@ -2313,6 +2389,11 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     0 0 15px rgba(204, 119, 34, 0.6);
   transform: scale(0.95) translateY(-3px);
   transition: 0.3s ease-in;
+}
+.live-btn:active,
+.explore-btn:active {
+  width: 280px;
+  white-space: nowrap;
 }
 
 .dark .live-btn {
@@ -2395,14 +2476,15 @@ body.dark .toolkit-page:hover .chapter-content h2 {
 /* ===== Explanation Card ===== */
 .explanation-card {
   width: 90%;
-  max-height: 100px;
-  margin: 1rem auto;
+  max-height: 250px;
+  margin: 2.5rem auto 1rem;
   background: rgba(255,255,255,0.15);
   border-radius: 12px;
   padding: 1rem;
   overflow-y: auto;
   display: none;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.8s ease;
+  transition: all 0.5 ease;
   white-space: pre-line;
 }
 
@@ -2419,12 +2501,12 @@ body.dark .toolkit-page:hover .chapter-content h2 {
 @media (max-width: 480px) {
   .modal {
     align-items: center;  
-    padding: 0.5rem;     
+    padding: 0.1rem !important;     
   }
 
   .modal-content {
     width: 90%;
-    padding: 0.6rem;
+    padding: 0.1rem !important;
   }
 
   .carousel-slide img {
@@ -2437,24 +2519,23 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   }
 
   .explanation-card {
-    max-height: 13vh;        
+    max-height: 13vh;     
     font-size: 0.85rem;
   }
   .carousel {
-    height: 30vh;
+    height: 26vh !important;
   }
 }
-
 
 @media (max-width: 768px)  {
   .modal {
     align-items: center;  
-    padding: 0.5rem;         
+    padding: 0.5rem !important;         
   }
 
   .modal-content {
     width: 90%;
-    padding: 0.6rem; 
+    padding: 0 0.3rem 0.5rem !important; 
   }
 
   .carousel-slide img {
@@ -2467,12 +2548,33 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   }
 
   .explanation-card {
-    max-height: 20vh;        
+    max-height: 20vh;     
     font-size: 0.85rem;
   }
   .carousel {
-    height: 31vh;
+    height: 28vh !important;
+  }
+  .explore-btn,
+  .live-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+  .live-btn:active,
+  .explore-btn:active {
+    width: 180px;
+    white-space: nowrap;
+  }
+  .modal-close {
+    top: 0;
+    right: 12px;
   }
 }
 
-
+@media (max-width: 1024px)  {
+  .carousel {
+    height: 40vh;
+  }
+  .carousel-slide img {
+    max-height: 37vh;         
+  }
+}
