@@ -503,6 +503,16 @@ body.dark .profile-img {
 body.dark .profile-img:hover {
   filter: drop-shadow(0 0 20px rgba(0,255,255,0.8));
 }
+.bouncy-sub:hover {
+  animation: bounceC 0.6s ease;
+  filter: drop-shadow(0 0 20px rgba(255,165,0,0.8));
+  color: #ff6600;
+}
+body.dark .bouncy-sub:hover {
+  color: #00aaff;
+  filter: drop-shadow(0 0 20px rgba(0,255,255,0.8));
+}
+
 
 /* Responsive Layout */
 @media (max-width: 1024px) {
@@ -1360,7 +1370,7 @@ body.dark .card-image img:hover {
   font-size: 1.4rem;
 }
 .card-description p {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 .card-image,
 .card-description {
@@ -2178,34 +2188,156 @@ body.light .icons-img.light {
 body.dark .icons-img.dark {
   display: block !important;
 }
-/* footer */
+
+/* === Footer === */
 .footer {
-  background: rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);  
-  text-align: center;
-  padding: 2rem;
-}
-.dark .footer {
-  box-shadow:
-    inset 6px 6px 12px rgba(0, 0, 0, 0.4),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.1);
-    color: #fff;
+  width: 100%;
+  height: 150px; /* footer height */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 1rem;
 }
 
-.footer p {
-  font-size: 1rem;
+/* Background GIFs */
+.footer-bg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 500px; /* taller than footer */
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
   opacity: 0.9;
-  margin-bottom: 2.7rem !important;
+  display: none;
 }
+
+.footer-bg.light {
+  background-image: url("footer-light.gif");
+}
+
+.footer-bg.dark {
+  background-image: url("footer-dark.gif");
+}
+
+body.light .footer-bg.light {
+  display: block;
+}
+
+body.dark .footer-bg.dark {
+  display: block;
+}
+
+/* Foreground content */
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: nowrap; /* always one row */
+}
+
+.footer-content img {
+  width: 55px;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* === Logo hover by theme === */
+body.light .footer-content img:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 153, 0, 0.9))
+          drop-shadow(0 0 15px rgba(255, 153, 0, 0.7));
+  transform: scale(1.1);
+}
+
+body.dark .footer-content img:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 207, 255, 0.9))
+          drop-shadow(0 0 15px rgba(0, 207, 255, 0.7));
+  transform: scale(1.1);
+}
+
+/* Copy text */
+.footer .copy {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f4f1e8;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode text */
+body.light .footer .copy {
+  color: #333;
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.7);
+  filter: drop-shadow(0 1px 2px rgba(150, 150, 150, 0.6));
+}
+
+/* Hover effects */
+body.light .footer .copy:hover {
+  color: #ff9900;
+  text-shadow: 
+    0 0 10px rgba(255, 153, 0, 0.9),   
+    0 0 20px rgba(255, 153, 0, 0.7),
+    0 0 30px rgba(255, 153, 0, 0.5),
+    -1px -1px 3px rgba(0, 0, 0, 1),
+    1px -1px 3px rgba(0, 0, 0, 1),
+    -1px 1px 3px rgba(0, 0, 0, 1),
+    1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+body.dark .footer .copy:hover {
+  color: #00cfff;
+  text-shadow: 
+    0 0 10px rgba(0, 207, 255, 0.9),   
+    0 0 20px rgba(0, 207, 255, 0.7),
+    0 0 30px rgba(0, 0, 0, 1),
+    -1px -1px 3px rgba(0, 0, 0, 1),
+    1px -1px 3px rgba(0, 0, 0, 1),
+    -1px 1px 3px rgba(0, 0, 0, 1),
+    1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+/* === Responsive adjustments === */
+@media (max-width: 768px) {
+  .footer {
+    height: 120px;
+  }
+
+  .footer-content img {
+    width: 45px;
+  }
+
+  .footer .copy {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: 100px;
+  }
+
+  .footer .copy {
+    font-size: 1rem;
+  }
+}
+
+
+
 
 .viber-icon {
   width: 24px;
   height: 24px;
-  filter: invert(100%); /* makes icon white on dark footer */
+  filter: invert(100%); 
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -2377,7 +2509,7 @@ body.dark .icons-img.dark {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   margin: 0 auto;
 }
-.calc-img {
+.dark .calc-img {
   border: 2px solid rgba(255, 255, 255, 0.15);
 }
 .calc-img:hover { 
