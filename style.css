@@ -483,7 +483,6 @@ body.dark .home-text p {
   display: none;
 }
 
-
 body.light .profile-img.light {
   display: block;
 }
@@ -544,11 +543,14 @@ body.dark .profile-img:hover {
     font-size: 1.2rem;
   }
   .home-image {
-    padding: 1rem;
+    margin-top: 1rem;
   }
   .home-content h1,
   .home-content p {
     margin: 0.3rem 0; 
+  }
+  .navigation {
+    margin-top: 2.3rem !important ;
   }
 }
 
@@ -1353,7 +1355,13 @@ body.dark .card-image img:hover {
   text-align: justify; 
   border-radius: 10px; 
 }
-
+.card-description h3{
+  text-align: center;
+  font-size: 1.4rem;
+}
+.card-description p {
+    font-size: 1.2rem;
+  }
 .card-image,
 .card-description {
   transition: all 2s ease; 
@@ -1389,8 +1397,8 @@ body.dark .card-description {
 /* ===== Responsive: small devices ===== */
 @media (max-width: 1024px) {
   .project-wrapper {
-    width: 80% !important;          
-    height: 300px !important;
+    width: 80% ;          
+    height: 300px ;
     margin-bottom: 30px;     
     position: relative;
     display: flex;
@@ -1501,7 +1509,7 @@ body.dark .card-description {
     font-size: 1.2rem;
   }
   .card-description p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.4;
   }
   body.light .card-image img:hover {
@@ -2019,8 +2027,8 @@ body.dark .toolkit-page .chapter-front img {
 .toolkit-page .chapter-content h2 {
   font-size: 1.8rem;
   opacity: 1;
+  white-space: nowrap;
 }
-
 
 /* 🔹 Responsive adjustments */
 @media (max-width: 768px) {
@@ -2159,7 +2167,17 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   color: #42c5ff; 
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.4);
 }
+.icons-img {
+  display: none !important;
+}
 
+body.light .icons-img.light {
+  display: block !important;
+}
+
+body.dark .icons-img.dark {
+  display: block !important;
+}
 /* footer */
 .footer {
   background: rgba(255, 255, 255, 0.1); 
@@ -2347,19 +2365,31 @@ body.dark .toolkit-page:hover .chapter-content h2 {
   text-align: center;
 }
 
-.carousel-slide img {
+.calc-img {
+  display: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
   width: 90%;
   max-height: 50vh;
-  object-fit: contain;
   border-radius: 10px;
   border: 2px solid #d2b48c;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  margin: 0 auto;
 }
-.carousel-slide img {
+.calc-img {
   border: 2px solid rgba(255, 255, 255, 0.15);
 }
-.carousel-slide img:hover { 
+.calc-img:hover { 
   transform: scale(1.05); 
+}
+
+body.light .calc-img.light {
+  display: block !important;
+}
+
+body.dark .calc-img.dark {
+  display: block !important;
 }
 
 .live-btn {
@@ -2578,4 +2608,3 @@ body.dark .toolkit-page:hover .chapter-content h2 {
     max-height: 37vh;         
   }
 }
-
