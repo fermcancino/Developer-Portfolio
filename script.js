@@ -152,14 +152,35 @@ toolkitIcons.forEach(icon => {
     // Show clicked one
     if (targetPage) {
       targetPage.classList.add("active", "fullscreen");
-      targetPage.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest"
+
+      const rect = targetPage.getBoundingClientRect();
+      const offset = window.scrollY + rect.top; // element’s position
+      const margin = 70; // 👈 adjust bottom margin (px)
+
+      window.scrollTo({
+        top: offset - (window.innerHeight - rect.height) + margin,
+        behavior: "smooth"
       });
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toolkitBtn = document.querySelector(".toolkit-btn");
+
+  toolkitBtn.addEventListener("click", () => {
+    const rect = toolkitBtn.getBoundingClientRect();
+    const offset = window.scrollY + rect.top; // button’s position on the page
+    const centerY = window.innerHeight / 2 - rect.height / 2; // center of screen
+
+    window.scrollTo({
+      top: offset - centerY,
+      behavior: "smooth"
+    });
+  });
+});
+
 
 // === Close Button on Chapter Pages ===
 document.querySelectorAll(".close-btn").forEach(btn => {
