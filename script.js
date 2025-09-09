@@ -44,6 +44,7 @@ themeToggle.addEventListener("click", () => {
       coverDark.style.display = "block";
     }
   }
+  setAboutVideoSource();
 });
 
 // === Hamburger Menu ===
@@ -319,3 +320,71 @@ const raw = slide.dataset.explanation || '';
 const withNewlines = raw.replace(/\\n/g, '\n').trim();
 
 box.textContent = withNewlines; // keep it safe; CSS will render the breaks
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutVideo = document.getElementById("aboutVideo");
+
+  function setAboutVideoSource() {
+    const isDark = document.body.classList.contains("dark");
+    const newSrc = isDark ? "about-dark.mp4" : "about-light.mp4";
+    const newPoster = isDark ? "about-dark.png" : "about-light.png";
+
+    // Set poster first so blank never shows
+    aboutVideo.setAttribute("poster", newPoster);
+
+    if (aboutVideo.getAttribute("src") !== newSrc) {
+      aboutVideo.src = newSrc;
+      aboutVideo.load();
+
+      aboutVideo.addEventListener("loadeddata", () => {
+        aboutVideo.currentTime = 0;
+        aboutVideo.play().catch(err => {
+          console.log("Autoplay blocked:", err);
+        });
+      }, { once: true });
+    }
+  }
+
+  // Run once on load
+  setAboutVideoSource();
+
+  // Theme toggle → update video + poster
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      setTimeout(setAboutVideoSource, 50);
+    });
+  }
+
+  // IntersectionObserver: play/pause based on visibility
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutVideo.play().catch(() => {});
+      } else {
+        aboutVideo.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(aboutVideo);
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const status = document.getElementById("status");
+
+  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    .then(() => {
+      status.textContent = "Message sent successfully!";
+      status.className = "show success"; // 👈 green
+      this.reset();
+    }, (err) => {
+      status.textContent = "Failed to send. Try again.";
+      status.className = "show error"; // 👈 red
+      console.error(err);
+    });
+});

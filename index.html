@@ -42,6 +42,7 @@
       <li><a href="#projects">Projects<span></span></a></li>
       <li><a href="#skills">Skills<span></span></a></li>
       <li><a href="#certificates">Certificates<span></span></a></li>
+      <li><a href="#contact">Contact<span></span></a></li>
     </ul>
 
     <!-- Right Controls -->
@@ -133,26 +134,25 @@
     </div>
 
     <!-- Right side: Image -->
-    <div class="home-image">
-      <img src="light-fermina.png" alt="Fermina Cancino" class="profile-img light">
-      <img src="dark-fermina.png" alt="Fermina Cancino" class="profile-img dark">
-    </div>
+<div class="home-image">
+  <img src="home-light.gif" alt="Fermina Cancino" class="profile-img light">
+  <img src="home-dark.gif" alt="Fermina Cancino" class="profile-img dark">
+</div>
+
 
   </div>
 </section>
 
 <!-- About Section  -->
-<section class="about-section" id="about" aria-label="About Me: animated profile">
-  <h2 class="section-title">From Circuits to Code</h2>
+<section id="about" class="about-section">
   <div class="about-container">
-    <div class="about-gif" role="img" aria-label="Fermina Cancino animated portrait"></div>
+    <video id="aboutVideo" class="about-gif" muted playsinline></video>
   </div>
 </section>
 
-
   <!-- Project Section -->
 <section id="projects" class="projects-section">
-  <h2 class="section-title">My Project</h2>
+  <h2 class="section-title">My Projects</h2>
 
   <div class="project-wrapper">
     <!-- Image card -->
@@ -1363,6 +1363,27 @@ Calculator Supports
   </div>
 </section>
 
+<section id="contact" >
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="contact-container">
+    <!-- Left: Form -->
+    <form id="contactForm" class="contact-form">
+      <h3>Contact Me</h3>
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="reply_to" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="status"></p>
+    </form>
+
+    <!-- Right: GIF -->
+    <div class="gif-box">
+      <img src="contact-light.gif" alt="Contact GIF" class="contact-light">
+      <img src="contact-dark.gif" alt="Contact GIF" class="contact-dark">
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <!-- Backgrounds -->
   <div class="footer-bg light"></div>
@@ -1378,7 +1399,7 @@ Calculator Supports
 
 </main>
 
-
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
