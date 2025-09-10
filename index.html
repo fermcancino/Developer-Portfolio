@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Home</title>
+  <title>Fermina - Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -72,6 +72,7 @@
         <span></span>
         <span></span>
         <span></span>
+        <img src="fe.png" alt="Menu">
       </div>
     </div>
   </header>
@@ -100,23 +101,16 @@
       <div class="navigation">
         <ul >
           <li class="list">
-            <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank">
-              <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
-              <span class="text">LinkedIn</span>
-              <span class="circle"></span>
-            </a>
-          </li>
-          <li class="list">
             <a href="https://github.com/fermcancino" target="_blank">
               <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
               <span class="text">Github</span>
               <span class="circle"></span>
             </a>
-          </li>
+          </li>          
           <li class="list">
-            <a href="viber://chat?number=+639463002207">
-              <span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
-              <span class="text">Viber</span>
+            <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank">
+              <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
+              <span class="text">LinkedIn</span>
               <span class="circle"></span>
             </a>
           </li>
@@ -127,6 +121,13 @@
               <span class="circle"></span>
             </a>
           </li>
+          <li class="list">
+            <a href="https://wa.me/639463002207">
+              <span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+              <span class="text">WhatsApp</span>
+              <span class="circle"></span>
+            </a>
+          </li>          
           <div class="indicator"></div>
         </ul>
       </div>
@@ -1364,15 +1365,32 @@ Calculator Supports
   </div>
 </section>
 
+<!-- Contact Me -->
 <section id="contact" >
   <h2 class="section-title">Get in Touch</h2>
   <div class="contact-container">
-    <!-- Left: Form -->
+    
     <form id="contactForm" class="contact-form">
       <h3>Contact Me</h3>
-      <input type="text" name="from_name" placeholder="Your Name" required>
-      <input type="email" name="reply_to" placeholder="Your Email" required>
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+      <div class="input-box">
+        <input type="text" name="from_name" id="name" required>
+        <label for="name" class="label">Name</label>
+      </div>
+
+      <div class="input-box">
+        <input type="email" name="reply_to" id="email" required>
+        <label for="email" class="label">Email</label>
+      </div>
+
+      <div class="input-box">
+        <textarea name="message" id="message" rows="6" required></textarea>
+        <label for="message" class="label">Your Message</label>
+      </div>
+
+      <!-- ensure messages go to your Gmail -->
+      <input type="hidden" name="to_email" value="fermcancino@gmail.com">
+
       <button type="submit">Send Message</button>
       <p id="status"></p>
     </form>
@@ -1385,18 +1403,25 @@ Calculator Supports
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="footer">
-  <!-- Backgrounds -->
-  <div class="footer-bg light"></div>
-  <div class="footer-bg dark"></div>
 
-  <!-- Foreground content -->
   <div class="footer-content">
-    <img src="logo.png" alt="My Logo">
-    <p class="copy">&copy; 2025 Fermina Cancino.</p>
+    <!-- Social links -->
+    <div class="social-links">
+      <a href="https://github.com/fermcancino" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:fermcancino@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/639463002207" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+
+    <div class="logo-copy">
+      <img src="logo.png" alt="My Logo" class="footer-logo">
+      <p class="copy">&copy; 2025 Fermina Cancino.</p>
+    </div>
   </div>
 </footer>
-
 
 </main>
 
@@ -1411,4 +1436,3 @@ Calculator Supports
 
 </body>
 </html>
-

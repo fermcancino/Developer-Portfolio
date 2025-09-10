@@ -388,3 +388,48 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
       console.error(err);
     });
 });
+
+(function(){
+    emailjs.init("7v5aIkjkb7FKJc4qR"); // public key / user id
+  })();
+
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("status");
+
+  form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  // Add spinner + text
+  submitBtn.innerHTML = `<span class="spinner"></span> Sending...`;
+
+  emailjs.sendForm("service_lmyko7r", "template_nfr3omg", this)
+    .then(function() {
+      statusEl.textContent = "Message sent! Thanks — I'll reply soon.";
+      statusEl.className = "show success";
+      form.reset();
+    }, function(error) {
+      console.error("EmailJS error:", error);
+      statusEl.textContent = "Failed to send. Please try again.";
+      statusEl.className = "show error";
+    })
+    .finally(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message"; // Reset button text
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const footer = document.querySelector(".footer");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add("visible");
+      }
+    });
+  });
+  observer.observe(footer);
+});
