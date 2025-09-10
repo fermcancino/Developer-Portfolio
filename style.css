@@ -133,8 +133,8 @@ body.dark .nav-links li a {
 .nav-links li a span {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 6%;
+  width: 90%;
   height: 3px;
   border-radius: 15px;
   border-bottom: 3px solid #ffb347; 
@@ -146,6 +146,17 @@ body.dark .nav-links li a span {
   border-bottom: 3px solid #00eaff;
 }
 
+.nav-links a {
+  display: flex;
+  align-items: center;   
+  gap: 7px;              
+}
+.nav-links a i {
+  color: #666;
+}
+body.dark .nav-links a i {
+  color: #6c757d; 
+}
 .nav-links li a:hover span {
   transform: scale(1) translateY(0);
   opacity: 1;
@@ -358,6 +369,9 @@ body.dark .theme-toggle {
   .navbar {
     padding: 1rem;
     margin-top: 0.5rem;
+  }
+  .nav-links li a {
+    padding: 4px 15px;
   }
   .nav-links.show {
     display: flex;
@@ -1592,16 +1606,20 @@ body.dark .card-image img:hover {
 /* Toolkit container */
 .toolkit-container {
   position: relative;
-  display: block; 
-  text-align: center;
+  display: flex;                /* makes centering easier */
+  justify-content: center;      
+  align-items: center;          
+  flex-direction: column;
   margin: 2rem auto;
   width: fit-content;
+  text-align: center;
   z-index: 2;
   transition: transform 2s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 /* Central Button */
 .toolkit-btn {
+  position: relative;
   border: none;
   padding: 15px 30px;
   border-radius: 50px;
@@ -1609,42 +1627,116 @@ body.dark .card-image img:hover {
   font-weight: 600;
   margin-top: 1.5rem;
   cursor: pointer;
-  transition: opacity 0.5s ease;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: #f4f1e8;
   color: #231f20;
-  box-shadow: 
-  4px 4px 10px rgba(0, 0, 0, 0.3),
-  -4px -4px 10px rgba(255, 255, 255, 0.7),
-  8px 8px 20px rgba(0, 0, 0, 0.25),
-  -8px -8px 20px rgba(255, 255, 255, 0.55);
-
-  position: relative;
   overflow: visible;
   animation: bubbleFloat 3s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+  box-shadow: 
+    4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(255, 255, 255, 0.7),
+    8px 8px 20px rgba(0, 0, 0, 0.25),
+    -8px -8px 20px rgba(255, 255, 255, 0.55);
 }
 
 /* Keyframes for bubbly bouncing */
 @keyframes bubbleFloat {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  20% {
-    transform: translateY(-10px) scale(1.05); /* rise + swell */
-  }
-  40% {
-    transform: translateY(5px) scale(0.95);   /* dip + squeeze */
-  }
-  60% {
-    transform: translateY(-6px) scale(1.02);  /* smaller rise */
-  }
-  80% {
-    transform: translateY(3px) scale(0.98);   /* smaller dip */
-  }
+  0%, 100% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-10px) scale(1.05); }
+  40% { transform: translateY(5px) scale(0.95); }
+  60% { transform: translateY(-6px) scale(1.02); }
+  80% { transform: translateY(3px) scale(0.98); }
 }
 
+/* Toolkit Icons (default) */
+.toolkit-icons button {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Show with stagger when active */
+.toolkit-container.active .toolkit-icons button {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;  
+  visibility: visible;
+}
+
+/* Active central button */
+.toolkit-container.active .toolkit-btn {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  border-radius: 50%;
+  transform: scale(1.5);
+  font-size: 2rem !important;
+  z-index: 10;
+}
+
+/* Button states */
+.toolkit-btn:active {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 25px rgba(0, 150, 255, 0.8),
+    0 0 50px rgba(0, 150, 255, 0.6);
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.toolkit-btn .btn-text {
+  transition: opacity 0.3s ease;
+}
+
+.toolkit-btn .btn-icon {
+  display: none;
+  font-size: 3rem;
+}
+
+.toolkit-btn.active .btn-text { display: none; }
+.toolkit-btn.active .btn-icon { display: inline; }
+
+.toolkit-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Light/Dark modes */
+body.light .toolkit-icons button {
+  background: #f4f1e8;
+  color: #231f20;
+  border: transparent;
+  box-shadow: 
+    6px 6px 12px #c9bbae,
+    -6px -6px 12px #ffffff;
+}
+
+body.dark .toolkit-icons button,
+body.dark .toolkit-btn {
+  background: rgba(15, 32, 39, 0.45);
+  color: #f4f1e8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 30px rgba(0,0,0,0.6),
+    inset -2px -2px 6px #c8bfae;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
 /* Mobile responsive */
 @media (max-width: 1024px) {
   .toolkit-icons {
@@ -1684,7 +1776,7 @@ body.dark .card-image img:hover {
   }
 
   .toolkit-btn .btn-icon {
-    font-size: 1.2rem ;
+    font-size: 1.5rem ;
     display: inline-block;
   }
 
@@ -1704,9 +1796,9 @@ body.dark .card-image img:hover {
   }
 
   .toolkit-icons button {
-    width: 50px ;
-    height: 50px ;
-    font-size: 1.2rem ;
+    width: 60px ;
+    height: 60px ;
+    font-size: 1.3rem ;
     margin-top: 50px;
   }
   
@@ -1715,6 +1807,16 @@ body.dark .card-image img:hover {
     width: 60px;
     font-size: 11px;
   }  
+  .toolkit-container.active .toolkit-btn {
+    width: 70px;
+    height: 70px;
+  }
+  .toolkit-btn .btn-icon {
+  display: none;
+  }
+
+  .toolkit-btn.active .btn-text { display: none; }
+  .toolkit-btn.active .btn-icon { display: inline; }
 }
 
 @media (min-width: 1200px) {
@@ -1727,64 +1829,12 @@ body.dark .card-image img:hover {
   .toolkit-icons button:hover .indicator {
   transform: translateX(-50%) translateY(-65px) !important;
   }
-}
-
-.toolkit-btn:active {
-  transform: scale(1.1); 
-  box-shadow: 0 0 25px rgba(0, 150, 255, 0.8),
-              0 0 50px rgba(0, 150, 255, 0.6);
-  transition: transform 0.1s ease, box-shadow 0.2s ease;
-}
-
-.toolkit-btn .btn-text {
-  transition: opacity 0.3s ease;
-}
-.toolkit-btn .btn-icon {
+  .toolkit-btn .btn-icon {
   display: none;
-  font-size: 1.6rem;
-}
+  }
 
-body.light .toolkit-icons button {
-  background: #f4f1e8;
-  color: #231f20;
-  border: transparent;
-  box-shadow: 6px 6px 12px #c9bbae,
-              -6px -6px 12px #ffffff;
-}
-
-body.dark .toolkit-icons button,
-body.dark .toolkit-btn {
-  background: rgba(15, 32, 39, 0.45);
-  color: #f4f1e8;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.6),
-              inset -2px -2px 6px #c8bfae;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Toolkit Icons */
-.toolkit-icons button  {
-  opacity: 0;
-  transform: translateY(30px); 
-  transition: all 0.2s ease;
-  transform: scale(1.1);
-  border-radius: 50%;
-  width: 60px; 
-  height: 60px; 
-  padding: 0; 
-  border-radius: 50%; 
-  font-size: 1.6rem; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  cursor: pointer;
-}
-
-/* Show with stagger when active */
-.toolkit-container.active .toolkit-icons button  {
-  opacity: 1;
-  transform: translateY(0); 
+  .toolkit-btn.active .btn-text { display: none; }
+  .toolkit-btn.active .btn-icon { display: inline; }
 }
 
 /* Stagger delays */
@@ -1821,12 +1871,6 @@ body.dark .toolkit-btn {
   height: auto;
   transition: opacity 0.2s ease, transform 0.2s ease;
   margin-top: 40px;
-}
-
-.toolkit-btn.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Hover effects (light mode) */
@@ -2945,6 +2989,7 @@ body.dark .input-box textarea:valid ~ .label {
   }
   .label {
     line-height: 15px; 
+    padding: auto;
   }
   .gif-box {
     order: 1; 
@@ -2969,7 +3014,7 @@ body.dark .input-box textarea:valid ~ .label {
 
   .contact-form input,
   .contact-form textarea {
-    padding: 10px;
+    padding: auto;
     font-size: 0.9rem;
     border-radius: 10px;
   }
