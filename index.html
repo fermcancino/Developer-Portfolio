@@ -31,36 +31,36 @@
   <!-- Navbar -->
   <header class="navbar">
     <!-- Logo -->
-    <div class="logo">
+    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="logo">
       <img src="logo.png" alt="My Logo">
     </div>
 
     <!-- Navigation -->
     <ul class="nav-links">
       <li class="active">
-        <a href="#home"><i class="fas fa-home"></i> Home<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="500" href="#home"><i class="fas fa-home"></i> Home<span></span></a>
       </li>
       <li>
-        <a href="#about"><i class="fas fa-user"></i> About<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="1000" href="#about"><i class="fas fa-user"></i> About<span></span></a>
       </li>
       <li>
-        <a href="#projects"><i class="fas fa-code"></i> Projects<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="1500" href="#projects"><i class="fas fa-code"></i> Projects<span></span></a>
       </li>
       <li>
-        <a href="#skills"><i class="fas fa-cogs"></i> Skills<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="2000" href="#skills"><i class="fas fa-cogs"></i> Skills<span></span></a>
       </li>
       <li>
-        <a href="#certificates"><i class="fas fa-certificate"></i> Certificates<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="2500" href="#certificates"><i class="fas fa-certificate"></i> Certificates<span></span></a>
       </li>
       <li>
-        <a href="#contact"><i class="fas fa-envelope"></i> Contact<span></span></a>
+        <a data-aos="fade-down" data-aos-duration="3000" href="#contact"><i class="fas fa-envelope"></i> Contact<span></span></a>
       </li>
     </ul>
 
     <!-- Right Controls -->
     <div class="nav-controls">
       <!-- Theme Toggle -->
-      <div class="theme-toggle" id="themeToggle" title="Dark Mode">
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2000" class="theme-toggle" id="themeToggle" title="Dark Mode">
         <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
           <circle cx="12" cy="12" r="5"/>
           <g stroke="currentColor" stroke-width="2">
@@ -80,7 +80,7 @@
       </div>
 
       <!-- Hamburger -->
-      <div class="menu-toggle" id="menuToggle">
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3000" class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
         <span></span>
@@ -97,7 +97,11 @@
   <div class="home-content">
     <!-- Left side: Text -->
     <div class="home-text">
-      <h1 class="bouncy">
+      <h1 data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          data-aos-offset="0"
+          data-aos-duration="1000" class="bouncy">
         <span style="--i:0">H</span><span style="--i:1">e</span><span style="--i:2">l</span><span style="--i:3">l</span><span style="--i:4">o</span><span style="--i:5">,</span>
         <span style="--i:6"> </span><br>
         <span style="--i:7">I</span><span style="--i:8">'</span><span style="--i:9">m</span>
@@ -105,13 +109,25 @@
         <span style="--i:11">F</span><span style="--i:12">e</span><span style="--i:13">r</span><span style="--i:14">m</span><span style="--i:15">i</span><span style="--i:16">n</span><span style="--i:17">a</span><span style="--i:18">.</span>
       </h1>
 
-      <p class="bouncy-sub">
+      <p class="bouncy-sub" data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          data-aos-offset="0"
+          data-aos-duration="2000">
         Electronics Engineer & Developer
       </p>
 
       <!-- Social Links -->
-      <div class="navigation">
-        <ul >
+      <div class="navigation" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="2500">
+        <ul data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     data-aos-duration="3000">
           <li class="list">
             <a href="https://github.com/fermcancino" target="_blank">
               <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
@@ -147,7 +163,8 @@
     </div>
 
     <!-- Right side: Image -->
-<div class="home-image">
+<div class="home-image" data-aos="zoom-in"
+     data-aos-duration="3000">
   <img src="home-light.gif" alt="Fermina Cancino" class="profile-img light">
   <img src="home-dark.gif" alt="Fermina Cancino" class="profile-img dark">
 </div>
@@ -158,20 +175,24 @@
 
 <!-- About Section  -->
 <section id="about" class="about-section">
- <h2 class="section-title">From Circuits to Code</h2>
+ <h2 class="section-title autoShow">From Circuits to Code</h2>
   <div class="about-container">
-    <video id="aboutVideo" class="about-gif" muted playsinline></video>
+    <video data-aos="zoom-in"
+     data-aos-duration="1000" id="aboutVideo" class="about-gif" muted playsinline></video>
   </div>
 </section>
 
   <!-- Project Section -->
 <section id="projects" class="projects-section">
-  <h2 class="section-title">My Projects</h2>
+  <h2 class="section-title autoShow">My Projects</h2>
 
   <div class="project-wrapper">
     <!-- Image card -->
     <div class="project-card card-image">
-      <img src="frontpage.png" alt="Engineer Toolkit">
+      <img src="frontpage.png" alt="Engineer Toolkit" class="imageReveal" data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" 
+     data-aos-duration="1000">
     </div>
 
     <!-- Description card -->
@@ -198,14 +219,17 @@
 <!-- Toolkit Container -->
 <div class="toolkit-container">
   <!-- Central Button -->
-  <button type="button" class="toolkit-btn" id="toolkitToggle">
-    <span class="btn-text">All-in-One Engineer’s Toolkit</span>
+  <button type="button" class="toolkit-btn fadeUp" id="toolkitToggle">
+    <span class="btn-text" data-aos="fade-right"
+     data-aos-offset="100"
+     data-aos-easing="ease-in-sine" 
+     data-aos-duration="1000">All-in-One Engineer’s Toolkit</span>
     <i class="fas fa-calculator btn-icon"></i>
     <span class="view-more">Click to View More</span>
   </button>
 
   <!-- Radial Icons -->
-  <div class="toolkit-icons">
+  <div class="toolkit-icons fadeUp">
     <button type="button" data-page="page1" title="Arithmetic">
       <i class="fas fa-plus"></i>
       <span class="indicator">Arithmetic &<br>Basic Math</span>
@@ -1259,29 +1283,29 @@ Calculator Supports
 
   <!-- Skills Section -->
 <section id="skills" class="skills-section">
-  <h2 class="section-title">My Skills</h2>
+  <h2 class="section-title autoShow">My Skills</h2>
   <div class="skills-container">
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fab fa-python"></i>
       <h3>Python</h3>
     </div>
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fab fa-js-square"></i>
       <h3>JavaScript</h3>
     </div>
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fab fa-html5"></i>
       <h3>HTML5</h3>
     </div>
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fab fa-css3-alt"></i>
       <h3>CSS3</h3>
     </div>
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fas fa-cogs"></i>
       <h3>Automation</h3>
     </div>
-    <div class="skill-card">
+    <div class="skill-card fadeUp">
       <i class="fab fa-github"></i>
       <h3>GitHub</h3>
     </div>
@@ -1290,14 +1314,14 @@ Calculator Supports
 
 <!-- Certificates Section -->
 <section id="certificates" class="certificates-section">
-  <h2 class="section-title">Certificates</h2>
+  <h2 class="section-title autoShow">Certificates</h2>
   <div class="certificates-grid">
     
     <!-- Certificate Card -->
     <div class="certificate-card">
       <div class="certificate-inner">
         <!-- Front -->
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="python.jpg" alt="Certificate 1">
         </div>
         <!-- Back -->
@@ -1311,7 +1335,7 @@ Calculator Supports
 
     <div class="certificate-card">
       <div class="certificate-inner">
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="javascript.jpg" alt="Certificate 2">
         </div>
         <div class="certificate-back">
@@ -1324,7 +1348,7 @@ Calculator Supports
 
     <div class="certificate-card">
       <div class="certificate-inner">
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="html.jpg" alt="Certificate 2">
         </div>
         <div class="certificate-back">
@@ -1337,7 +1361,7 @@ Calculator Supports
 
     <div class="certificate-card">
       <div class="certificate-inner">
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="css.jpg" alt="Certificate 2">
         </div>
         <div class="certificate-back">
@@ -1350,7 +1374,7 @@ Calculator Supports
 
     <div class="certificate-card">
       <div class="certificate-inner">
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="frontend.jpg" alt="Certificate 2">
         </div>
         <div class="certificate-back">
@@ -1363,7 +1387,7 @@ Calculator Supports
 
     <div class="certificate-card">
       <div class="certificate-inner">
-        <div class="certificate-front">
+        <div class="certificate-front fadeUp">
           <img src="python development.jpg" alt="Certificate 2">
         </div>
         <div class="certificate-back">
@@ -1379,10 +1403,10 @@ Calculator Supports
 
 <!-- Contact Me -->
 <section id="contact" >
-  <h2 class="section-title">Get in Touch</h2>
+  <h2 class="section-title autoShow">Get in Touch</h2>
   <div class="contact-container">
     
-    <form id="contactForm" class="contact-form">
+    <form id="contactForm" class="contact-form fadeUp">
       <h3>Contact Me</h3>
 
       <div class="input-box">
@@ -1408,7 +1432,7 @@ Calculator Supports
     </form>
 
     <!-- Right: GIF -->
-    <div class="gif-box">
+    <div class="gif-box fadeUp">
       <img src="contact-light.gif" alt="Contact GIF" class="contact-light">
       <img src="contact-dark.gif" alt="Contact GIF" class="contact-dark">
     </div>
@@ -1421,10 +1445,10 @@ Calculator Supports
   <div class="footer-content">
     <!-- Social links -->
     <div class="social-links">
-      <a href="https://github.com/fermcancino" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:fermcancino@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/639463002207" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/fermcancino" target="_blank"><span class="text">Github</span><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ferminacancino-electronicsengineer" target="_blank"><span class="text">LinkedIn</span><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:fermcancino@gmail.com"><span class="text">Email</span><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/639463002207" target="_blank"><span class="text">WhatsApp</span><i class="fab fa-whatsapp"></i></a>
     </div>
 
 

@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      setTimeout(setAboutVideoSource, 50);
+      setTimeout(setAboutVideoSource, 70);
     });
   }
 
