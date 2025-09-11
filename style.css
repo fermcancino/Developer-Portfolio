@@ -3321,10 +3321,10 @@ body.dark .footer .copy:hover {
 }
 
 @keyframes AutoRotateAnimation {
-  from {
+  10% {
     transform: rotate(0deg);
   }
-  to {
+  60% {
     transform: rotate(360deg);
   }
 }
@@ -3332,14 +3332,14 @@ body.dark .footer .copy:hover {
 .autoShow {
   animation: text-appear both;
   animation-timeline: view();
-  animation-range: entry 5% cover 20%;
+  animation-range: entry 20% cover 100vh;
 }
 @keyframes text-appear {
-  10% {
+  from {
     opacity: 0;
     transform: translateY(100px);
   }
-  25% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
