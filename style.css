@@ -1277,10 +1277,13 @@ body.dark .card-description {
   }
 }
 @media (max-width: 768px) {
+  .projects-section {
+    padding-top: 3rem;
+  }
   .projects-section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-}
+  }
   .project-wrapper {
     width: 95%;          
     height: 230px !important;       
@@ -1529,7 +1532,7 @@ body.dark .toolkit-btn {
     grid-template-columns: repeat(8, 1fr) !important;
     gap: 25px !important;
     width: 100%;
-    margin-top: 20px !important;
+    margin-top: 25px !important;
   }
   .toolkit-icons button .indicator {    
     height: 60px;
@@ -1594,10 +1597,7 @@ body.dark .toolkit-btn {
     width: 100%;
     max-width: 350px; 
     justify-items: center;
-    margin-top: 0;
-  }
-  .toolkit-container.active .toolkit-btn {
-    margin-bottom: 10px !important
+    margin-top: 5px !important ;
   }
 
   .toolkit-icons button {
@@ -1605,6 +1605,7 @@ body.dark .toolkit-btn {
     height: 60px ;
     font-size: 1.3rem ;
     margin-top: 50px;
+    margin-bottom: 0;
   }
   
   .toolkit-icons button .indicator {    
@@ -1615,6 +1616,7 @@ body.dark .toolkit-btn {
   .toolkit-container.active .toolkit-btn {
     width: 70px;
     height: 70px;
+    margin-bottom: 0;
   }
   .toolkit-btn .btn-icon {
   display: none;
@@ -1837,7 +1839,7 @@ body.dark .toolkit-icons button .indicator { color: #00aaff; }
   .close-btn {
     width: 40px;
     height: 40px;
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     z-index: 2;
   }
 }
@@ -2026,6 +2028,7 @@ body.dark .toolkit-page .chapter-front img {
 
   .toolkit-page .chapter-content h2 {
     font-size: 1.2rem !important;
+    margin-bottom: 8px;
   }
   .toolkit-page .chapter-content p {
     font-size: 0.95rem;
@@ -2770,18 +2773,18 @@ body.dark .skill-card i::after {
 
   .skill-card {
     width: 100%; 
-    max-width: 150px; 
-    height: 150px;
+    max-width: 130px; 
+    height: 130px;
   }
   .skill-card i {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
   }
   .skill-card h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .skill-card:hover i::after {
-  width: 57px;  
-  height: 57px;
+  width: 53px;  
+  height: 53px;
   }
 }
 
@@ -3399,8 +3402,8 @@ body.dark .contact-form button.submit::after {
   }
 
   .contact-form button.submit {
-    padding: 12px;
-    font-size: 0.9rem;
+    padding: 14px;
+    font-size: 1rem;
     border-radius: 50px;
   }
 
