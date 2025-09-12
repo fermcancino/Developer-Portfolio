@@ -178,7 +178,7 @@
  <h2 class="section-title autoShow">From Circuits to Code</h2>
   <div class="about-container">
     <video data-aos="zoom-in"
-     data-aos-duration="1000" id="aboutVideo" class="about-gif" muted playsinline></video>
+     data-aos-duration="1000" id="aboutVideo" class="about-gif fadeUp" muted playsinline></video>
   </div>
 </section>
 
@@ -189,10 +189,8 @@
   <div class="project-wrapper">
     <!-- Image card -->
     <div class="project-card card-image">
-      <img src="frontpage.png" alt="Engineer Toolkit" class="imageReveal" data-aos="fade-left"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" 
-     data-aos-duration="1000">
+      <img src="frontpage.png" alt="Engineer Toolkit" class="imageReveal" 
+      data-aos="zoom-in-up" data-aos-duration="3000" >
     </div>
 
     <!-- Description card -->
@@ -219,30 +217,27 @@
 <!-- Toolkit Container -->
 <div class="toolkit-container">
   <!-- Central Button -->
-  <button type="button" class="toolkit-btn fadeUp" id="toolkitToggle">
-    <span class="btn-text" data-aos="fade-right"
-     data-aos-offset="100"
-     data-aos-easing="ease-in-sine" 
-     data-aos-duration="1000">All-in-One Engineer’s Toolkit</span>
+  <button type="button" class="toolkit-btn" id="toolkitToggle">
+    <span class="btn-text fadeUp">All-in-One Engineer’s Toolkit</span>
     <i class="fas fa-calculator btn-icon"></i>
     <span class="view-more">Click to View More</span>
   </button>
 
   <!-- Radial Icons -->
   <div class="toolkit-icons fadeUp">
-    <button type="button" data-page="page1" title="Arithmetic">
+    <button type="button" data-page="page1" title="Arithmetic & Basic Math">
       <i class="fas fa-plus"></i>
       <span class="indicator">Arithmetic &<br>Basic Math</span>
     </button>
-    <button type="button" data-page="page2" title="Statistics">
+    <button type="button" data-page="page2" title="Probability & Statistics">
       <i class="fas fa-chart-line"></i>
       <span class="indicator">Probability &<br>Statistics</span>
     </button>
-    <button type="button" data-page="page3" title="Measurement">
+    <button type="button" data-page="page3" title="Measurement & Converter">
       <i class="fas fa-ruler-combined"></i>
       <span class="indicator">Measurement<br>& Converter</span>
     </button>
-    <button type="button" data-page="page4" title="Number Theory">
+    <button type="button" data-page="page4" title="Number Theory Tools">
       <i class="fas fa-square-root-alt"></i>
       <span class="indicator">Number<br>Theory Tools</span>
     </button>
@@ -413,7 +408,7 @@
   - Error handling for invalid expressions
   - Optional theme switching for better UI experience
 ">
-          <img src="1l.png" alt="Simple Calculator" class="calc-img light">
+          <img src="arithmetic.png" alt="Simple Calculator" class="calc-img light">
           <img src="1.png" alt="Simple Calculator" class="calc-img dark">
           <button class="live-btn" 
           data-url="https://fermcancino.github.io/engineers-toolkit/simple-calculator.html">Live Demo</button>
@@ -1427,7 +1422,7 @@ Calculator Supports
       <!-- ensure messages go to your Gmail -->
       <input type="hidden" name="to_email" value="fermcancino@gmail.com">
 
-      <button type="submit">Send Message</button>
+      <button class="submit" type="submit">Send Message</button>
       <p id="status"></p>
     </form>
 
@@ -1466,7 +1461,9 @@ Calculator Supports
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+  AOS.init({
+  once: true 
+});
 </script>
 <script src="script.js"></script>
 

@@ -98,12 +98,19 @@ navLinks.forEach(link => {
     const targetId = anchor.getAttribute("href").substring(1);
     const targetSection = document.getElementById(targetId);
 
-    targetSection.scrollIntoView({ behavior: "smooth" });
+    const navHeight = document.querySelector(".navbar").offsetHeight; // fixed navbar height
+    const offset = targetSection.offsetTop - navHeight - 25; // extra gap
+
+    window.scrollTo({
+      top: offset,
+      behavior: "smooth"
+    });
 
     navLinks.forEach(l => l.classList.remove("active"));
     link.classList.add("active");
   });
 });
+
 
 // === Toolkit Central Button ===
 const toolkitBtn = document.getElementById("toolkitToggle");
@@ -156,7 +163,7 @@ toolkitIcons.forEach(icon => {
 
       const rect = targetPage.getBoundingClientRect();
       const offset = window.scrollY + rect.top; // element’s position
-      const margin = 70; // 👈 adjust bottom margin (px)
+      const margin = 50; // 👈 adjust bottom margin (px)
 
       window.scrollTo({
         top: offset - (window.innerHeight - rect.height) + margin,
@@ -433,3 +440,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   observer.observe(footer);
 });
+
