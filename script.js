@@ -177,6 +177,16 @@ toolkitIcons.forEach(icon => {
     // Show clicked one
     if (targetPage) {
       targetPage.classList.add("active", "fullscreen");
+
+      // 🔹 Scroll so the bottom of page is visible with margin
+      const rect = targetPage.getBoundingClientRect();
+      const pageBottom = window.scrollY + rect.bottom;
+      const margin = 50; // adjust this gap as you like
+
+      window.scrollTo({
+        top: pageBottom - window.innerHeight + margin,
+        behavior: "smooth"
+      });
     }
 
     // 🔹 Remove active state from all buttons
