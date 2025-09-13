@@ -165,33 +165,48 @@ toolkitBtn.addEventListener("click", () => {
   }
 });
 
-// === Toolkit Icon Click → Open Chapter ===
+// === Toolkit Icon Click → Open Chapter (with fade transitions) ===
 toolkitIcons.forEach(icon => {
   icon.addEventListener("click", () => {
     const targetId = icon.getAttribute("data-page");
     const targetPage = document.getElementById(targetId);
 
-    // Hide all toolkit pages
-    toolkitPages.forEach(page => page.classList.remove("active", "fullscreen"));
+    // If clicking the same active page, do nothing
+    if (targetPage.classList.contains("active")) return;
 
-    // Show clicked one
+    // 🔹 Fade out currently active page first
+    const currentPage = document.querySelector(".toolkit-page.active");
+    if (currentPage) {
+      currentPage.classList.remove("active");
+      currentPage.classList.add("fade-out");
+
+      // After transition, fully hide it
+      currentPage.addEventListener("transitionend", function handler() {
+        currentPage.style.display = "none";
+        currentPage.classList.remove("fade-out");
+        currentPage.removeEventListener("transitionend", handler);
+      });
+    }
+
+    // 🔹 Fade in target page
     if (targetPage) {
-      targetPage.classList.add("active", "fullscreen");
+      targetPage.style.display = "block"; // make it render
+      requestAnimationFrame(() => {
+        targetPage.classList.add("active"); // triggers transition
+      });
 
-      // 🔹 Scroll so the bottom of page is visible with margin
+      // 🔹 Scroll so bottom fits with margin
       const rect = targetPage.getBoundingClientRect();
       const pageBottom = window.scrollY + rect.bottom;
-      const margin = 50; // adjust this gap as you like
-
+      const margin = 260;  // margin bottom
       window.scrollTo({
         top: pageBottom - window.innerHeight + margin,
         behavior: "smooth"
       });
     }
 
-    // 🔹 Remove active state from all buttons
+    // 🔹 Update active icon
     toolkitIcons.forEach(btn => btn.classList.remove("active"));
-    // 🔹 Add active state to clicked button
     icon.classList.add("active");
   });
 });
@@ -311,25 +326,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     prevBtn?.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateCarousel();
-    });
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+    updateExplanation("left");  // ⬅️ swipe left
+  });
 
-    nextBtn?.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateCarousel();
-    });
+  nextBtn?.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+    updateExplanation("right"); // ➡️ swipe right
+  });
 
-    infoBtn?.addEventListener("click", () => {
-      explanation.classList.toggle("active");
-    });
+  infoBtn?.addEventListener("click", () => {
+  explanation.classList.toggle("active");
+  });
+      
+    function updateExplanation(direction = "right") {
+    const activeSlide = slides[currentIndex];
+    const text = (activeSlide.dataset.explanation || "").replace(/\\n/g, "<br>");
 
-    function updateExplanation() {
-      const activeSlide = slides[currentIndex];
-      const raw = activeSlide.dataset.explanation || "";
-      const text = raw.replace(/\\n/g, "<br>");
-      explanation.innerHTML = text;
-    }
+    // always clear out previous content first
+    explanation.innerHTML = "";
+
+    // create fresh content
+    const newContent = document.createElement("div");
+    newContent.className = `content enter-${direction}`;
+    newContent.innerHTML = text;
+    explanation.appendChild(newContent);
+
+    // trigger animation
+    requestAnimationFrame(() => {
+      newContent.classList.add("active");
+    });
+  }
   });
 
   // Explore buttons open URL

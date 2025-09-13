@@ -1933,9 +1933,24 @@ body.dark .close-btn:hover {
   margin-top: 2rem;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(0.2) rotate(0deg);
+  transform-origin: center center;
+  transition: all 0.6s ease;
+  pointer-events: none;
   display: none; 
+}
+
+/* visible state */
+.toolkit-page.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+.toolkit-page.fade-out {
+  opacity: 0;
+  transform: scale(0.2) rotate(-180deg);
+  pointer-events: none;
 }
 
 .toolkit-page::after {
@@ -1962,14 +1977,6 @@ body.dark .toolkit-page::after {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
-/* visible state */
-.toolkit-page.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
 
 .toolkit-page .chapter-front {
   position: relative;
@@ -2505,10 +2512,53 @@ body.dark .calc-img.dark {
   animation: fadeIn 0.8s ease;
   transition: all 0.5 ease;
   white-space: pre-line;
+  transition: transform 0.5s ease-in-out; 
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
 }
-
 .explanation-card.active {
   display: block;
+}
+
+/* swipe animation */
+.explanation-card .content {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* leaving left */
+.explanation-card .content.leave-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+/* leaving right */
+.explanation-card .content.leave-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* entering from left */
+.explanation-card .content.enter-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.explanation-card .content.enter-left.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* entering from right */
+.explanation-card .content.enter-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.explanation-card .content.enter-right.active {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 @keyframes fadeIn {
