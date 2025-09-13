@@ -1837,8 +1837,10 @@ body.dark .toolkit-icons button .indicator { color: #00aaff; }
 /* 🔹 Responsive sizing */
 @media (max-width: 768px) {
   .close-btn {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    right: -10px;
     font-size: 1.4rem !important;
     z-index: 2;
   }
@@ -2000,12 +2002,13 @@ body.dark .toolkit-page .chapter-front img {
 @media (max-width: 1024px) {
   .toolkit-page {
     width: 80%;
-    padding: 35px;
-    margin-top: 20px;
+    padding: 30px;
+    margin-top: 20px;.close-btn:hover
   }
 
   .toolkit-page .chapter-content h2 {
     font-size: 1.5rem !important;
+    margin-bottom: 12px !important;
   }
   .toolkit-page .chapter-content p {
     font-size: 1rem;
