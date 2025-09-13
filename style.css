@@ -1037,7 +1037,8 @@ body.dark .bouncy-sub:hover {
     width: 100%;
   }
   .about-section {
-    padding-bottom: 0.8rem;
+    padding-top: 2.5rem;
+    padding-bottom: 0;
   }
   .about-gif {
     width: 95%;             
@@ -1278,7 +1279,7 @@ body.dark .card-description {
 }
 @media (max-width: 768px) {
   .projects-section {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
   }
   .projects-section h2 {
   font-size: 2rem;
@@ -1462,6 +1463,21 @@ body.dark .toolkit-icons button::after {
   visibility: visible;
 }
 
+.toolkit-icons button.active {   
+  color: #ff9500 !important;                 
+  border: 2px solid #ff9500 !important;  
+  transition: all 0.3s ease;
+}
+body.dark .toolkit-icons button.active {   
+  color: #007bff !important;                 
+  border: 2px solid #00bfff !important;  
+}
+/* toolkit indicator */
+.toolkit-icons button.active .indicator {
+  opacity: 1;
+  transform: translate(-48px, -66px);
+  pointer-events: auto;
+}
 /* Active central button */
 .toolkit-container.active .toolkit-btn {
   width: 100px;
@@ -1539,6 +1555,11 @@ body.dark .toolkit-btn {
     width: 60px;
     font-size: 11px;
   } 
+  .toolkit-icons button.active .indicator {
+  opacity: 1;
+  transform: translate(-30px, -32px);
+  pointer-events: auto;
+  }
   .toolkit-btn {         
     padding: 10px 20px;        
     border-radius: 40px;
@@ -1613,6 +1634,11 @@ body.dark .toolkit-btn {
     width: 60px;
     font-size: 11px;
   }  
+  .toolkit-icons button.active .indicator {
+  opacity: 1;
+  transform: translate(-30px, -32px);
+  pointer-events: auto;
+  }
   .toolkit-container.active .toolkit-btn {
     width: 70px;
     height: 70px;
@@ -2027,6 +2053,7 @@ body.dark .toolkit-page .chapter-front img {
     width: 95%;
     padding: 15px;
     margin-top: 15px;
+    margin-bottom: 2rem;
   }
 
   .toolkit-page .chapter-content h2 {
@@ -2089,6 +2116,11 @@ body.dark .toolkit-page .chapter-front img {
   pointer-events: none;
   margin-bottom: 30px;
   color: #f4f1e8;
+  text-shadow: 
+    -1px -1px 2px #000,  
+     1px -1px 2px #000,  
+    -1px  1px 2px #000, 
+     1px  1px 2px #000; 
 }
 .toolkit-page .chapter-content a {
   opacity: 0;
@@ -2763,7 +2795,7 @@ body.dark .skill-card i::after {
     margin: auto 1rem;
   }
   .skills-section {
-    padding: 2rem;
+    padding: 0 2rem 1.5rem 2rem;
   }
   .skills-section h2 {
     margin-bottom: 1.5rem;
@@ -3352,14 +3384,14 @@ body.dark .contact-form button.submit::after {
   .contact-container {
     grid-template-columns: 1fr;    
     padding-top: 0;  
-    padding-bottom: 50px;     
+    padding-bottom: 40px;     
     min-height: auto;     
     margin: 0; 
     gap: 0;
   }
   #contact .section-title {
   font-size: 2rem;
-  margin: 2rem auto 0;
+  margin: 1.5rem auto 0;
   }
   .contact-form {
     order: 2;  

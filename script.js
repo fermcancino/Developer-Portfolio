@@ -89,6 +89,23 @@ const observer = new IntersectionObserver(entries => {
 }, observerOptions);
 
 sections.forEach(section => observer.observe(section));
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => link.classList.remove("active"));
+  if (current) {
+    const activeLink = document.querySelector(`.nav-links li a[href="#${current}"]`).parentElement;
+    activeLink.classList.add("active");
+  }
+});
+
 
 // === Smooth Scroll on Click ===
 navLinks.forEach(link => {
@@ -154,22 +171,18 @@ toolkitIcons.forEach(icon => {
     const targetId = icon.getAttribute("data-page");
     const targetPage = document.getElementById(targetId);
 
-    // Hide all first
+    // Hide all toolkit pages
     toolkitPages.forEach(page => page.classList.remove("active", "fullscreen"));
 
     // Show clicked one
     if (targetPage) {
       targetPage.classList.add("active", "fullscreen");
-
-      const rect = targetPage.getBoundingClientRect();
-      const offset = window.scrollY + rect.top; // element’s position
-      const margin = 50; // 👈 adjust bottom margin (px)
-
-      window.scrollTo({
-        top: offset - (window.innerHeight - rect.height) + margin,
-        behavior: "smooth"
-      });
     }
+
+    // 🔹 Remove active state from all buttons
+    toolkitIcons.forEach(btn => btn.classList.remove("active"));
+    // 🔹 Add active state to clicked button
+    icon.classList.add("active");
   });
 });
 
