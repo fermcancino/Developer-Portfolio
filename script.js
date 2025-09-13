@@ -144,8 +144,14 @@ toolkitBtn.addEventListener("click", () => {
     toolkitPages.forEach(page =>
       page.classList.remove("active", "fullscreen")
     );
+
+    // 🔹 Also remove active state from all icons
+    toolkitIcons.forEach(icon =>
+      icon.classList.remove("active")
+    );
   }
 });
+
 
 // === Toolkit Button Hover Effect ===
 toolkitBtn.addEventListener("mousemove", e => {
@@ -165,52 +171,36 @@ toolkitBtn.addEventListener("click", () => {
   }
 });
 
-// === Toolkit Icon Click → Open Chapter (with fade transitions) ===
+// === Toolkit Icon Click → Open Chapter ===
 toolkitIcons.forEach(icon => {
   icon.addEventListener("click", () => {
     const targetId = icon.getAttribute("data-page");
     const targetPage = document.getElementById(targetId);
 
-    // If clicking the same active page, do nothing
-    if (targetPage.classList.contains("active")) return;
+    // Hide all toolkit pages
+    toolkitPages.forEach(page => page.classList.remove("active", "fullscreen"));
 
-    // 🔹 Fade out currently active page first
-    const currentPage = document.querySelector(".toolkit-page.active");
-    if (currentPage) {
-      currentPage.classList.remove("active");
-      currentPage.classList.add("fade-out");
-
-      // After transition, fully hide it
-      currentPage.addEventListener("transitionend", function handler() {
-        currentPage.style.display = "none";
-        currentPage.classList.remove("fade-out");
-        currentPage.removeEventListener("transitionend", handler);
-      });
-    }
-
-    // 🔹 Fade in target page
+    // Show clicked one
     if (targetPage) {
-      targetPage.style.display = "block"; // make it render
-      requestAnimationFrame(() => {
-        targetPage.classList.add("active"); // triggers transition
-      });
+      targetPage.classList.add("active", "fullscreen");
 
-      // 🔹 Scroll so bottom fits with margin
+      // 🔹 Scroll so the bottom of page is visible with margin
       const rect = targetPage.getBoundingClientRect();
       const pageBottom = window.scrollY + rect.bottom;
-      const margin = 260;  // margin bottom
+      const margin = 50; // adjust this gap as you like
+
       window.scrollTo({
         top: pageBottom - window.innerHeight + margin,
         behavior: "smooth"
       });
     }
 
-    // 🔹 Update active icon
+    // 🔹 Remove active state from all buttons
     toolkitIcons.forEach(btn => btn.classList.remove("active"));
+    // 🔹 Add active state to clicked button
     icon.classList.add("active");
   });
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const toolkitBtn = document.querySelector(".toolkit-btn");
