@@ -196,17 +196,9 @@ toolkitIcons.forEach(icon => {
       });
 
       // 🔹 Scroll so bottom fits with margin
-      let margin = 260; // default for desktop
-      if (window.innerWidth <= 480) {
-        margin = 120;
-      } else if (window.innerWidth <= 768) {
-        margin = 160;
-      } else if (window.innerWidth <= 1024) {
-        margin = 200;
-      }
-
       const rect = targetPage.getBoundingClientRect();
       const pageBottom = window.scrollY + rect.bottom;
+      const margin = 260;  // margin bottom
       window.scrollTo({
         top: pageBottom - window.innerHeight + margin,
         behavior: "smooth"
