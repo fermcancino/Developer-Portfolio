@@ -2510,11 +2510,9 @@ body.dark .calc-img.dark {
   overflow-y: auto;
   display: none;
   animation: fadeIn 0.8s ease;
-  transition: all 0.5 ease;
   white-space: pre-line;
-  transition: transform 0.5s ease-in-out; 
+  transition: all 0.5s ease-in-out; 
   position: relative;
-  overflow: hidden;
   min-height: 150px;
 }
 .explanation-card.active {
@@ -2523,11 +2521,9 @@ body.dark .calc-img.dark {
 
 /* swipe animation */
 .explanation-card .content {
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: all 0.4s ease;
   position: absolute;
   width: 100%;
-  top: 0;
-  left: 0;
 }
 
 /* leaving left */
