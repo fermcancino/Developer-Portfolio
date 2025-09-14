@@ -1075,7 +1075,7 @@ body.dark .bouncy-sub:hover {
   text-align: center;
   transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
   font-size: 3rem;
-  z-index: 2;
+  z-index: 0;
 }
 .section-title:hover {
   transform: scale(1.1) translateY(-8px);
@@ -1102,6 +1102,7 @@ body.dark .section-title:hover {
   position: relative;
   width: 800px;  
   height: 500px;
+  z-index: 999 !important; 
 }
 
 .project-card {
@@ -1116,7 +1117,7 @@ body.dark .section-title:hover {
 .card-image {
   left: 50%;
   transform: translateX(-50%); 
-  z-index: 2;
+  z-index: 3;
 }
 
 .card-image img {
@@ -1187,11 +1188,11 @@ body.dark .card-image img:hover {
 }
 .card-description h3{
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .card-description p {
     font-size: 1rem;
-  }
+}
 .card-image,
 .card-description {
   transition: all 2s ease; 
@@ -1232,12 +1233,20 @@ body.dark .card-description {
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 5;   
+    align-items: center;  
   }
   .card-description {
     overflow-y: auto;
-    transform: translateY(0); 
+    transform: translateY(0);
+    padding: 2rem 3rem !important; 
+  }
+  .card-description h3{
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 30px !important;
+  }
+  .card-description p {
+      font-size: 0.9rem;
   }
   .card-image,
   .card-description {
@@ -1248,7 +1257,7 @@ body.dark .card-description {
     left: 0;
   }
   
-  .section-title  {
+  .section-title {
     margin-bottom: 1.9rem;
     font-size: 2.5rem;
   }
@@ -1322,7 +1331,7 @@ body.dark .card-description {
     transform: translateY(0); 
     opacity: 0;
     text-align: center;
-    padding: 40px;
+    padding: 1rem !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1331,7 +1340,8 @@ body.dark .card-description {
     height: auto;
     max-height: 100%; 
     overflow-y: auto;
-    margin-bottom: 25px;
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
   }
   /* Hover effect → slide top & bottom */
   .project-wrapper:hover .card-image {
@@ -1343,13 +1353,13 @@ body.dark .card-description {
     padding: 30px;  
     opacity: 1;
   }
-
   /* Adjust font sizes */
   .card-description h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 5px !important;
   }
   .card-description p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.4;
   }
   body.light .card-image img:hover {
@@ -1931,7 +1941,9 @@ body.dark .close-btn:hover {
   border-radius: 20px;
   padding: 30px;
   margin-top: 2rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 6px 6px 12px #9c8f81,   
+            -6px -6px 12px #c7b8a8; 
+
   opacity: 0;
   transform: translateY(20px) scale(0.2) rotate(0deg);
   transform-origin: center center;
@@ -2259,7 +2271,8 @@ body.dark .icons-img.dark {
   width: 100%;
   width: 700px;
   background: linear-gradient(145deg, #f4f1e8, #dcccbe);
-  box-shadow: 6px 6px 12px #c9bbae, -6px -6px 12px #ffffff; 
+  box-shadow: 8px 8px 16px #8a7d70,   
+             -8px -8px 16px #a8998c; 
   transition: background-color 0.3s, box-shadow 0.3s;
   border-radius: 20px;
   padding: 1rem 1.5rem;
@@ -2507,16 +2520,30 @@ body.dark .calc-img.dark {
   width: 90%;
   max-height: 250px;
   margin: 2.5rem auto 1rem;
-  background: rgba(255,255,255,0.15);
+  background: linear-gradient(45deg, #f4f1e8, #dcccbe);
+  box-shadow: 5px 5px 10px #c9bbae,
+              -5px -5px 10px #ffffff;
   border-radius: 12px;
   padding: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;   
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  white-space: normal; 
   display: none;
   animation: fadeIn 0.8s ease;
   white-space: pre-line;
   transition: all 0.5s ease-in-out; 
   position: relative;
   min-height: 150px;
+}
+body.dark .explanation-card {
+  background: linear-gradient(135deg, rgba(15,32,39,0.3), rgba(35,62,70,0.15));
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.25),
+              inset -2px -2px 4px rgba(255,255,255,0.3);
 }
 .explanation-card.active {
   display: block;
