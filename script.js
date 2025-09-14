@@ -294,9 +294,21 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelectorAll(".close-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const page = btn.closest(".toolkit-page");
+    if (!page) return;
+
+    // Remove active/fullscreen from page
     page.classList.remove("active", "fullscreen");
+    page.style.display = "none"; // also hide it completely
+
+    // Find and reset the matching icon
+    const pageId = page.getAttribute("id");
+    const icon = document.querySelector(`.toolkit-icons button[data-page="${pageId}"]`);
+    if (icon) {
+      icon.classList.remove("active");
+    }
   });
 });
+
 function showPage(pageId) {
   const pages = document.querySelectorAll('.toolkit-page');
 
