@@ -171,36 +171,108 @@ toolkitBtn.addEventListener("click", () => {
   }
 });
 
-// === Toolkit Icon Click → Open Chapter ===
+// === Toolkit Icon Click → Open Chapter (robust transition) ===
+let isAnimating = false;
+
 toolkitIcons.forEach(icon => {
-  icon.addEventListener("click", () => {
+  icon.addEventListener("click", async () => {
+    if (isAnimating) return;                // prevent re-entry during animation
+    isAnimating = true;
+
     const targetId = icon.getAttribute("data-page");
     const targetPage = document.getElementById(targetId);
+    if (!targetPage) { isAnimating = false; return; }
 
-    // Hide all toolkit pages
-    toolkitPages.forEach(page => page.classList.remove("active", "fullscreen"));
-
-    // Show clicked one
-    if (targetPage) {
-      targetPage.classList.add("active", "fullscreen");
-
-      // 🔹 Scroll so the bottom of page is visible with margin
-      const rect = targetPage.getBoundingClientRect();
-      const pageBottom = window.scrollY + rect.bottom;
-      const margin = 50; // adjust this gap as you like
-
-      window.scrollTo({
-        top: pageBottom - window.innerHeight + margin,
-        behavior: "smooth"
-      });
+    // if clicked page already active, bail
+    if (targetPage.classList.contains("active")) {
+      isAnimating = false;
+      return;
     }
 
-    // 🔹 Remove active state from all buttons
+    const currentPage = document.querySelector(".toolkit-page.active");
+
+    // helper: wait for transitionend (with timeout fallback)
+    const waitTransition = (el, timeout = 800) => new Promise(resolve => {
+      if (!el) return resolve();
+      let done = false;
+      const onEnd = (e) => {
+        if (e.target !== el) return;
+        if (done) return;
+        done = true;
+        el.removeEventListener("transitionend", onEnd);
+        clearTimeout(timer);
+        resolve();
+      };
+      el.addEventListener("transitionend", onEnd);
+      const timer = setTimeout(() => {
+        if (done) return;
+        done = true;
+        el.removeEventListener("transitionend", onEnd);
+        resolve();
+      }, timeout);
+    });
+
+    // hide currently open page (if any)
+    if (currentPage) {
+      // remove active -> triggers CSS transform to "hidden" state
+      currentPage.classList.remove("active");
+
+      // force reflow so the browser applies the change and the transition runs
+      void currentPage.offsetWidth;
+
+      // add fade-out class (your CSS handles transform & rotation)
+      currentPage.classList.add("fade-out");
+
+      // wait for its transition to finish (or fallback)
+      await waitTransition(currentPage);
+
+      // hide after animation
+      currentPage.style.display = "none";
+      currentPage.classList.remove("fade-out");
+    }
+
+    // show target page
+    // make sure it's rendered first
+    targetPage.style.display = "block";
+
+    // ensure it starts from baseline (no stale classes)
+    targetPage.classList.remove("fade-out");
+
+    // force reflow again
+    void targetPage.offsetWidth;
+
+    // add active to trigger CSS transition into visible state
+    targetPage.classList.add("active");
+
+    // wait for show transition to complete (optional)
+    await waitTransition(targetPage);
+
+    // update icon states
     toolkitIcons.forEach(btn => btn.classList.remove("active"));
-    // 🔹 Add active state to clicked button
     icon.classList.add("active");
+    // scroll page so icon & indicator are visible
+scrollPageToIcon(icon);
+
+    isAnimating = false;
   });
 });
+// === Scroll page so icon & page are visible ===
+function scrollPageToIcon(icon, marginBottom = 200) {
+  if (!icon) return;
+
+  // Slight delay to ensure page is rendered
+  setTimeout(() => {
+    const rect = icon.getBoundingClientRect();
+    const scrollY = window.scrollY + rect.top - 190; // px from top
+    const maxScroll = document.body.scrollHeight - window.innerHeight + marginBottom;
+
+    window.scrollTo({
+      top: Math.min(scrollY, maxScroll),
+      behavior: "smooth"
+    });
+  }, 5);
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const toolkitBtn = document.querySelector(".toolkit-btn");
