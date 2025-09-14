@@ -144,13 +144,18 @@ toolkitBtn.addEventListener("click", () => {
     toolkitPages.forEach(page =>
       page.classList.remove("active", "fullscreen")
     );
-
-    // 🔹 Also remove active state from all icons
     toolkitIcons.forEach(icon =>
       icon.classList.remove("active")
     );
+  } else {
+    // 🔹 Toolkit opened → re-center the last active page (if any)
+    const activeIcon = document.querySelector(".toolkit-icons button.active");
+    if (activeIcon) {
+      scrollPageToIcon(activeIcon); // ✅ recenters properly
+    }
   }
 });
+
 
 // === Toolkit Button Hover Effect ===
 toolkitBtn.addEventListener("mousemove", e => {
@@ -175,7 +180,7 @@ let isAnimating = false;
 
 toolkitIcons.forEach(icon => {
   icon.addEventListener("click", async () => {
-    if (isAnimating) return;                // prevent re-entry during animation
+    if (isAnimating) return; // prevent re-entry during animation
     isAnimating = true;
 
     const targetId = icon.getAttribute("data-page");
@@ -213,48 +218,35 @@ toolkitIcons.forEach(icon => {
 
     // hide currently open page (if any)
     if (currentPage) {
-      // remove active -> triggers CSS transform to "hidden" state
       currentPage.classList.remove("active");
-
-      // force reflow so the browser applies the change and the transition runs
       void currentPage.offsetWidth;
-
-      // add fade-out class (your CSS handles transform & rotation)
       currentPage.classList.add("fade-out");
-
-      // wait for its transition to finish (or fallback)
       await waitTransition(currentPage);
-
-      // hide after animation
       currentPage.style.display = "none";
       currentPage.classList.remove("fade-out");
     }
 
-    // show target page
-    // make sure it's rendered first
+    // ✅ show target page — reset position/opacity first
     targetPage.style.display = "block";
+    targetPage.classList.remove("fade-out", "left", "right");
+    targetPage.style.transform = ""; // clear stale offset
+    targetPage.style.opacity = "";   // clear faded state
 
-    // ensure it starts from baseline (no stale classes)
-    targetPage.classList.remove("fade-out");
+    void targetPage.offsetWidth; // reflow
 
-    // force reflow again
-    void targetPage.offsetWidth;
-
-    // add active to trigger CSS transition into visible state
     targetPage.classList.add("active");
 
-    // wait for show transition to complete (optional)
     await waitTransition(targetPage);
 
-    // update icon states
     toolkitIcons.forEach(btn => btn.classList.remove("active"));
     icon.classList.add("active");
-    // scroll page so icon & indicator are visible
-scrollPageToIcon(icon);
+
+    scrollPageToIcon(icon);
 
     isAnimating = false;
   });
 });
+
 // === Scroll page so icon & page are visible ===
 function scrollPageToIcon(icon, marginBottom = 200) {
   if (!icon) return;

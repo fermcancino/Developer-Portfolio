@@ -2570,7 +2570,7 @@ body.dark .calc-img.dark {
   border-radius: 12px;
   padding: 1rem;
   overflow-y: auto;
-  overflow-x: hidden;   
+  overflow-x: auto;   
   word-wrap: break-word; 
   overflow-wrap: break-word; 
   white-space: normal; 
