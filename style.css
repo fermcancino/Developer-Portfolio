@@ -1388,6 +1388,15 @@ body.dark .card-image img:hover {
   transition: all 0.3s ease;
 }
 
+:root{
+    --btn-w: 420px;
+    --btn-h: 70px;
+    --btn-w-shrunk: 100px;
+    --btn-h-shrunk: 100px;
+    --text-fade: 220ms;     /* adjust timing if you want */
+    --morph-dur: 450ms;     /* must match JS timeouts if using setTimeout */
+  }
+
 /* Central Button */
 .toolkit-btn {
   position: relative;
@@ -1406,13 +1415,24 @@ body.dark .card-image img:hover {
   color: #231f20;
   overflow: visible;
   animation: bubbleFloat 3s ease-in-out infinite;
-  transition: all 0.5s ease;
+  transition:
+      width var(--morph-dur) cubic-bezier(.2,.9,.3,1),
+      height var(--morph-dur) cubic-bezier(.2,.9,.3,1),
+      padding 220ms ease,
+      border-radius var(--morph-dur) ease,
+      font-size 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease;
   z-index: 1;
   box-shadow: 
     4px 4px 10px rgba(0, 0, 0, 0.3),
     -4px -4px 10px rgba(255, 255, 255, 0.7),
     8px 8px 20px rgba(0, 0, 0, 0.25),
     -8px -8px 20px rgba(255, 255, 255, 0.55);
+  --w: var(--btn-w);
+  --h: var(--btn-h);
+  width: var(--w);
+  height: var(--h);
 }
 
 /* Keyframes for bubbly bouncing */
@@ -1510,7 +1530,18 @@ body.dark .toolkit-icons button.active {
 }
 
 .toolkit-btn .btn-text {
-  transition: opacity 0.3s ease;
+  display: inline-block;
+  transition: opacity var(--text-fade) ease, transform var(--text-fade) ease;
+  transform-origin: center;
+}
+.toolkit-btn .btn-text.hidden {
+    opacity: 0;
+    transform: translateY(-6px) scale(.975);
+    pointer-events: none;
+  }
+.toolkit-container.active .toolkit-btn .btn-text {
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 .toolkit-btn .btn-icon {
@@ -1582,8 +1613,14 @@ body.dark .toolkit-btn {
     width: 70px;
     height: 70px;
   }
+  :root {
+    --btn-w: 350px;
+    --btn-h: 60px;
+    --btn-w-shrunk: 70px;
+    --btn-h-shrunk: 70px;
+  }
   .toolkit-btn .btn-icon {
-    font-size: 1.5rem ;
+    font-size: 2.2rem ;
     display: none;
   }
 }
@@ -1606,13 +1643,13 @@ body.dark .toolkit-btn {
   }
 
   .toolkit-btn .btn-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: block;   
     margin-top: 0.2rem;                    
   }
 
   .toolkit-btn .btn-icon {
-    font-size: 1.5rem ;
+    font-size: 2rem !important;
     display: inline-block;
   }
 
@@ -1654,6 +1691,12 @@ body.dark .toolkit-btn {
     width: 70px;
     height: 70px;
     margin-bottom: 0;
+  }
+  :root {
+    --btn-w: 280px;
+    --btn-h: 50px;
+    --btn-w-shrunk: 70px;
+    --btn-h-shrunk: 70px;
   }
   .toolkit-btn .btn-icon {
   display: none;
