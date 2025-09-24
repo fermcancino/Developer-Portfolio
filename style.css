@@ -2134,7 +2134,8 @@ body.dark .toolkit-page .chapter-front img {
   .toolkit-page .chapter-content p {
     font-size: 0.95rem;
     margin-bottom: 10px !important;
-    bottom: 20px !important;
+    transform: translate(0, 20px);
+    bottom: 5px !important;
   }
   .toolkit-page .chapter-front img {
     margin-bottom: 10px;
