@@ -2134,7 +2134,7 @@ body.dark .toolkit-page .chapter-front img {
   .toolkit-page .chapter-content p {
     font-size: 0.95rem;
     margin-bottom: 10px !important;
-    transform: translate(0, 20px);
+    transform: translate(0, 10px);
     bottom: 5px !important;
   }
   .toolkit-page .chapter-front img {
@@ -2674,7 +2674,7 @@ body.dark .explanation-card {
   }
 
   .carousel-btn {
-    font-size: 1.2rem;
+    font-size: 1rem !important;
     padding: 0.3rem 0.5rem;
   }
 
@@ -2703,7 +2703,7 @@ body.dark .explanation-card {
   }
 
   .carousel-btn {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     padding: 0.3rem 0.5rem;
   }
 
